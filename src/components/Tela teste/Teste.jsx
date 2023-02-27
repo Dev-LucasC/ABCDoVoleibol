@@ -4,6 +4,8 @@ import './teste.css'
 import { FaLinkedin } from 'react-icons/fa'
 import { FaFacebookSquare } from 'react-icons/fa'
 import { FaInstagram } from 'react-icons/fa'
+
+
 const Teste = () => {
   return (
     <header>
@@ -23,7 +25,7 @@ const Teste = () => {
             <a href="">Inicio </a>
           </li>
           <li>
-            <a href="">Prestação de contas</a>
+            <a href="prestacaocontas.html">Prestação de contas</a>
           </li>
           <li>
             <a href="">Noticias</a>
