@@ -30,6 +30,10 @@ export const Container = styled.div`
       width: 300px;
     }
   }
+
+  @media screen and (max-width: 600px) {
+   
+}
 `;
 
 export const Content = styled.div`
