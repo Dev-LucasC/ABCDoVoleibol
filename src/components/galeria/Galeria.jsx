@@ -6,7 +6,7 @@ const Galeria = () => {
     return (
         <section>
             <div>
-                <h1> Noticias </h1>
+                <h1> Galeria </h1>
                 <hr size="6" width="100%" align="left" color="black"></hr>
             </div>
             <div className="container container__fotos">
