@@ -1,0 +1,36 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #ebb93e;
+    
+}
+
+
+.header-sociais {
+    display: flex;
+    gap: 2rem;
+}
+
+a {
+    list-style: none;
+    text-decoration: none;
+    color: inherit;
+    font-size: 32px;
+}
+
+header img {
+    width: 10%;
+}
+
+@media (max-width: 600px) {
+    header img {
+        width: 30%;
+    }
+
+    .header-sociais {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
