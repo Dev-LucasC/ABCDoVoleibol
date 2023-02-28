@@ -53,7 +53,6 @@ nav ul li a  {
 
 @media (max-width: 600px) {
     header img {
-        width: 30%;
      
     }
 
@@ -71,8 +70,7 @@ nav ul li a  {
 @media (max-width: 900px) {
 
     header img {
-        min-width: 25%;
-        max-width: 35%;
+        width: 10rem;
       
     }
 
