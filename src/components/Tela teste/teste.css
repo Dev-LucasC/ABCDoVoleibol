@@ -1,14 +1,13 @@
-header {
-  
-    
-}
+
 
 .container-header {
     display: flex;
     align-items: center;
     justify-content: space-around;
     background: #ebb93e;
-    height: 15vh;
+    height: 20vh;
+
+    margin: 0em 0em -2em 0em;
 }
 
 
@@ -26,8 +25,8 @@ header {
 }
 
 header img {
-    
-    width: 7.5%;
+    z-index: 10;
+    width: 9%;
 }
 
 nav ul {
@@ -35,9 +34,11 @@ nav ul {
     justify-content: space-around;
     width: 100%;
     background: blue;
-    padding: 0  20rem;
+    align-items: center;
+    padding: 0  13rem;
     font-size: 20px;
     border-bottom: 3px solid #535353;
+    height: 6vh;
   
 }
 
@@ -53,6 +54,7 @@ nav ul li a  {
 @media (max-width: 600px) {
     header img {
         width: 30%;
+     
     }
 
     .header-sociais {
@@ -69,8 +71,9 @@ nav ul li a  {
 @media (max-width: 900px) {
 
     header img {
-        min-width: 20%;
-        max-width: 0 35%;
+        min-width: 25%;
+        max-width: 35%;
+      
     }
 
     .header-sociais {

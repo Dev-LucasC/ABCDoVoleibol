@@ -21,6 +21,7 @@ export const Container = styled.div`
   .teste {
     background-color: #1D449F; 
     width: 100vw;
+    height: 3rem;
   }
 
 }
@@ -43,6 +44,7 @@ export const Container = styled.div`
   .teste {
     background-color: #1D449F; 
     width: 100vw;
+    height: 3rem;
   }
 
 }

@@ -1,6 +1,5 @@
 section {
     overflow: hidden;
-    width: 50%;
     margin: 0 auto;
    
 }
@@ -23,9 +22,8 @@ h1 {
 
 .container__fotos-galeria {
     margin-top: 2rem;
-    border: 1px solid black;
     border-radius: 0 0 2rem 2rem;
-    background: rgba(0, 0, 0, 0.6);
+    
 
    
   
@@ -67,6 +65,15 @@ h1 {
 
 .container__fotos-galeria h4, h5 {
     padding: 0.5rem;
+    -moz-transition: all 0.5s;
+   -webkit-transition: all 0.5s;
+}
+
+.container__fotos-galeria:hover h4, h5 {
+    color: orange;
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.03);
 }
 
 .titulo { 
