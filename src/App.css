@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +12,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: white;
+  font-family: 'Poppins', sans-serif;
   /*background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.1)), url('./volei26set.jpg');
   background-repeat: no-repeat;
   background-position: center;
