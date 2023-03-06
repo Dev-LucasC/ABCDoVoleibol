@@ -42,7 +42,7 @@ export const Slider = ({ slides }) => {
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, EffectCube]}
         spaceBetween={20}
-        slidesPerView={3}
+        slidesPerView={1}
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
