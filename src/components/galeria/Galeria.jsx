@@ -32,28 +32,6 @@ const Galeria = () => {
                         <h4>Balneário X Blumenau</h4>
                     </a>
                 </div>
-                <div className="container__fotos-galeria">
-                    <a href="https://www.linked.in.com">
-
-                        <img src={Testevolei1} alt="" />
-                        <h5>09/02/2023</h5>
-                        <h4>Balneário X Blumenau</h4>
-                    </a>
-                </div>
-                <div className="container__fotos-galeria">
-                    <a href="https://www.linked.in.com">
-                        <img src={Testevolei1} alt="" />
-                        <h5>09/02/2023</h5>
-                        <h4>Balneário X Blumenau</h4>
-                    </a>
-                </div>
-                <div className="container__fotos-galeria">
-                    <a href="https://www.linked.in.com">
-                        <img src={Testevolei1} alt="" />
-                        <h5>09/02/2023</h5>
-                        <h4>Balneário X Blumenau</h4>
-                    </a>
-                </div>
             </div>
         </section>
     )

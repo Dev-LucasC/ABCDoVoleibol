@@ -4,6 +4,7 @@ import Teste from './components/Tela teste/Teste';
 import Galeria from './components/galeria/Galeria';
 import { Slider } from './components/noticias/slider';
 import slides from './components/noticias/mock.json';
+import Footer from './components/footer/Footer';
 
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
     <Header />
     <Slider slides={slides}/>
     <Galeria />
-    </>
+    <Footer />
+    </>  
   );
 }
 

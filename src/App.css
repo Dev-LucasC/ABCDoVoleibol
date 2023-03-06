@@ -6,6 +6,7 @@
   box-sizing: border-box;
   list-style: none;
 
+
 }
 
 
@@ -14,6 +15,7 @@ body {
   height: 100vh;
   background-color: white;
   font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
   /*background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.1)), url('./volei26set.jpg');
   background-repeat: no-repeat;
   background-position: center;
