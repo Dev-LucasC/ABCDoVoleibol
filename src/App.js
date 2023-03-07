@@ -1,3 +1,6 @@
+
+
+
 import './App.css';
 import Header from './components/Header'
 import Teste from './components/Tela teste/Teste';
@@ -7,9 +10,13 @@ import slides from './components/noticias/mock.json';
 import Footer from './components/footer/Footer';
 
 
+
 function App() {
   return (
     <>
+    
+
+
     <Teste />
     <Header />
     <Slider slides={slides}/>

@@ -5,6 +5,10 @@ import { FaLinkedin } from 'react-icons/fa'
 import { FaFacebookSquare } from 'react-icons/fa'
 import { FaInstagram } from 'react-icons/fa'
 
+import { Routes, Route } from 'react-router-dom'
+import Contas from '../../pages/Contas'
+
+
 
 const Teste = () => {
   return (
@@ -19,13 +23,16 @@ const Teste = () => {
         
       </div>
 
+
+
+
       <nav>
         <ul>
           <li>
             <a href="">Inicio </a>
           </li>
           <li>
-            <a href="prestacaocontas.html">Prestação de contas</a>
+            <a>Prestação de Contas</a>
           </li>
           <li>
             <a href="">Noticias</a>
