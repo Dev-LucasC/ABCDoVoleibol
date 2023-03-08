@@ -1,0 +1,9 @@
+.parceiros {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+    height: 20vh;
+    color: white;
+}

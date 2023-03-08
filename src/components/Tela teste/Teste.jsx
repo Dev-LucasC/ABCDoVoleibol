@@ -33,13 +33,13 @@ const Teste = () => {
             <Link to="/contas">  Prestação de Contas</Link>
           </li>
           <li>
-            <a href="">Noticias</a>
+          <Link to="/noticias"> Noticias </Link>
           </li>
           <li>
-            <a href="">Equipes</a>
+          <Link to="/equipes"> Equipes</Link>
           </li>
           <li>
-            <a href="">Calendario</a>
+          <Link to="/calendario"> Calendario</Link>
           </li>
         </ul>
       </nav>

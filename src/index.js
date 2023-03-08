@@ -7,6 +7,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 import { Contas } from "./routes/Contas"
 import  Erro  from "./routes/ErrorPage"
+import { Noticias } from "./routes/Noticias"
+import { Calendario } from "./routes/Calendario"
 
 const router = createBrowserRouter([
   {
@@ -18,7 +20,16 @@ const router = createBrowserRouter([
   {
     path: "/contas",
     element: <Contas />
-  }
+  },
+  {
+    path: "/noticias",
+    element: <Noticias />
+  },
+  {
+    path: "/calendario",
+    element: <Calendario />
+  },
+  
 ])
 
 ReactDOM.render(
