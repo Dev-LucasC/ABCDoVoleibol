@@ -4,9 +4,7 @@ import './teste.css'
 import { FaLinkedin } from 'react-icons/fa'
 import { FaFacebookSquare } from 'react-icons/fa'
 import { FaInstagram } from 'react-icons/fa'
-
-import { Routes, Route } from 'react-router-dom'
-import Contas from '../../pages/Contas'
+import { Link } from 'react-router-dom'
 
 
 
@@ -29,10 +27,10 @@ const Teste = () => {
       <nav>
         <ul>
           <li>
-            <a href="">Inicio </a>
+           <Link to="/"> Inicio </Link>
           </li>
           <li>
-            <a>Prestação de Contas</a>
+            <Link to="/contas">  Prestação de Contas</Link>
           </li>
           <li>
             <a href="">Noticias</a>

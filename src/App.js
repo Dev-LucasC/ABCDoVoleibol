@@ -6,9 +6,11 @@ import Header from './components/Header'
 import Teste from './components/Tela teste/Teste';
 import Galeria from './components/galeria/Galeria';
 import { Slider } from './components/noticias/slider';
-import slides from './components/noticias/mock.json';
+
 import Footer from './components/footer/Footer';
 
+
+import { Outlet  } from 'react-router-dom';
 
 
 function App() {
@@ -19,7 +21,8 @@ function App() {
 
     <Teste />
     <Header />
-    <Slider slides={slides}/>
+    <Slider />
+    <Outlet />
     <Galeria />
     <Footer />
     </>  

@@ -1,12 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import PrestacaoContas from './';
 import reportWebVitals from './reportWebVitals';
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+
+import { Contas } from "./routes/Contas"
+import  Erro  from "./routes/ErrorPage"
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <Erro />
+    
+  },
+  {
+    path: "/contas",
+    element: <Contas />
+  }
+])
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>,
   document.getElementById('root')
 );

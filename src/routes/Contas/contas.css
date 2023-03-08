@@ -1,0 +1,33 @@
+.provedor {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+    text-align: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 1em;
+    padding: 1em;
+}
+
+.provedor h5{
+    color: gray;
+}
+
+.provedor a {
+    color: inherit;
+    border: 0.5px solid black;
+    border-radius: 0.5em;
+    padding: 0.5em;
+}
+
+.provedor a:hover {
+    color: orange;
+    border: 0.5px solid orange;
+}
+
+@media screen and (max-width: 600px) {
+    .provedor {
+        font-size: 0.6rem;
+        white-space: nowrap;
+    }
+}
