@@ -32,7 +32,7 @@ const Sidebar = ({ active }) => {
       <Content>
         <SidebarItem Icon={FaHome} Text="Inicio" />
         <SidebarItem Icon={FaNewspaper} Text="Noticias" />
-        <SidebarItem Icon={FaFileInvoiceDollar} Text="Prestação de contas" />
+        <Link to="/contas"> <SidebarItem Icon={FaFileInvoiceDollar} Text="Prestação de contas" /></Link>
         <SidebarItem Icon={FaMedal} Text="Equipes" />
         <SidebarItem Icon={FaRegCalendarAlt} Text="Calendario" />
       </Content>
