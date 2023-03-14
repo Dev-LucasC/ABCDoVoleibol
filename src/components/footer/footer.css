@@ -1,9 +1,27 @@
 .parceiros {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: black;
-    height: 20vh;
-    color: white;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  background-color: black;
+  color: Orange;
+}
+
+.patrocinadores img {
+    max-width: 120px;
+    height: auto;
+    filter: grayscale(-100%);
+  }
+
+.patrocinadores {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  padding: 0 10rem;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.imagem-grande {
+  width: 220px !important;
+  height: auto !important;
 }
