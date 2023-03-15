@@ -2,6 +2,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y, EffectCube } from 'swiper';
 import 'swiper/swiper-bundle.min.css';
 import './App.css'
+import { Link } from 'react-router-dom';
+
+
 
 import React, { useState, useEffect } from "react";
 import axios from 'axios'
@@ -59,7 +62,7 @@ export const Slider = ({ slides }) => {
               <h2>{post?.attributes?.titulo}</h2>
               <p>{post?.attributes?.texto}</p>
               <div className='portofolio__item-cta'>
-                <a href="#" className='btn' target='_blank'>Ver noticia</a>
+              <Link to={`/noticias/${post?.attributes?.id}`} className='btn'>Ver noticia</Link>
               </div>
             </div>
           </SwiperSlide>

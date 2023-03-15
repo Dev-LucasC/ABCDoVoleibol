@@ -9,6 +9,9 @@ import { Contas } from "./routes/Contas"
 import  Erro  from "./routes/ErrorPage"
 import { Noticias } from "./routes/Noticias"
 import { Calendario } from "./routes/Calendario"
+import NoticiaCompleta from "./routes/NoticiaCompleta";
+
+
 
 const router = createBrowserRouter([
   {
@@ -29,7 +32,10 @@ const router = createBrowserRouter([
     path: "/calendario",
     element: <Calendario />
   },
-  
+  {
+    path: "/noticias/:id",
+    element: <NoticiaCompleta />
+  }
 ])
 
 ReactDOM.render(
