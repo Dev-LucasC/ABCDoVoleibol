@@ -3,7 +3,7 @@
 
 import './App.css';
 import Header from './components/Header'
-import Teste from './components/Tela teste/Teste';
+import Teste from './components/NavHeader/NavHeader';
 import { Slider } from './components/noticias/slider';
 
 import Footer from './components/footer/Footer';

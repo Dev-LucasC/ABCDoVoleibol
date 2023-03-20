@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from './logo.png'
-import './teste.css'
+import './navheader.css'
 import { FaLinkedin } from 'react-icons/fa'
 import { FaFacebookSquare } from 'react-icons/fa'
 import { FaInstagram } from 'react-icons/fa'

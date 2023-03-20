@@ -1,7 +1,17 @@
 import React from 'react'
+import NavHeader from '../components/NavHeader/NavHeader';
+import Header from '../components/Header'
+import {PainelNoticias} from './Noticias/PainelNoticias'
+import Footer from '../components/footer/Footer';
+
 
 export const Noticias = () => {
   return (
-    <div>Noticias</div>
+    <>
+      <NavHeader />
+      <Header />
+      <PainelNoticias />
+      <Footer />
+    </>
   )
 }

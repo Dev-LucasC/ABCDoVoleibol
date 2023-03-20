@@ -1,0 +1,21 @@
+.news-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+      "news-item-1 news-item-1 news-item-2"
+      "news-item-1 news-item-1 news-item-3";
+  }
+  
+  .news-item:nth-child(1) {
+    grid-area: news-item-1;
+  }
+  
+  .news-item:nth-child(2) {
+    grid-area: news-item-2;
+  }
+  
+  .news-item:nth-child(3) {
+    grid-area: news-item-3;
+  }
+  

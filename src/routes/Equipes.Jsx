@@ -1,9 +1,17 @@
 import React from 'react'
+import Footer from '../components/footer/Footer';
+import Header from '../components/Header'
+import NavHeader from '../components/NavHeader/NavHeader';
 
-const Equipes = () => {
-  return (
-    <div>Equipes</div>
-  )
+
+
+export const Equipes = () => {
+    return (
+        <>
+            <NavHeader />
+            <Header />
+           
+            <Footer />
+        </>
+    )
 }
-
-export default Equipes

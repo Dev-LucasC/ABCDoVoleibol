@@ -1,6 +1,7 @@
 import React from 'react'
+import Footer from '../components/footer/Footer';
 import Header from '../components/Header'
-import Teste from '../components/Tela teste/Teste';
+import Teste from '../components/NavHeader/NavHeader';
 import PrestacaoPdf from './Contas/PrestacaoPdf';
 
 
@@ -10,6 +11,7 @@ export const Contas = () => {
             <Teste />
             <Header />
             <PrestacaoPdf />
+            <Footer />
         </>
     )
 }
