@@ -1,6 +1,7 @@
 section {
   width: 60%;
   overflow: hidden;
+ margin: 0 auto;
 }
 
 .container_noticias {

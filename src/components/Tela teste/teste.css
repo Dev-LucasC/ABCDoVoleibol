@@ -1,86 +1,81 @@
-
-
 .container-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background: #ebb93e;
-    height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #eda120;
+  height: 20vh;
 
-    margin: 0em 0em -2em 0em;
+  margin: 0em 0em -2em 0em;
 }
 
-
 .header-sociais {
-    display: flex;
-    gap: 2rem;
+  display: flex;
+  gap: 2rem;
 }
 
 .header-sociais a {
-    list-style: none;
-    text-decoration: none;
-    color: inherit;
-    font-size: 32px;
-  
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+  font-size: 32px;
 }
 
 header img {
-    z-index: 10;
-    width: 9%;
+  z-index: 10;
+  width: 9%;
 }
 
 nav ul {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    background: blue;
-    align-items: center;
-    padding: 0  13rem;
-    font-size: 20px;
-    border-bottom: 3px solid #535353;
-    height: 6vh;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: #1d489d;
+  align-items: center;
+  font-size: 20px;
+  border-bottom: 3px solid #535353;
+  height: 6vh;
   
 }
 
-nav ul li a  {
-    border-left:  1px solid gray;
-    border-right:  1px solid gray;
-    padding: 0 1rem;
-    list-style: none;
-    text-decoration: none;
-    color: white;
+nav ul li a {
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  padding: 0 2rem;
+  list-style: none;
+  text-decoration: none;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+nav ul li a:hover {
+    color: black;
 }
 
 @media (max-width: 600px) {
-    header img {
-     
-    }
+  header img {
+  }
 
-    .header-sociais {
-        display: flex;
-        gap: 0.7rem;
-    }
+  .header-sociais {
+    display: flex;
+    gap: 0.7rem;
+  }
 
-    nav {
-        display: none;
-    }
+  nav {
+    display: none;
+  }
 }
 
-
 @media (max-width: 900px) {
+  header img {
+    width: 10rem;
+  }
 
-    header img {
-        width: 10rem;
-      
-    }
+  .header-sociais {
+    display: flex;
+    gap: 0.7rem;
+  }
 
-    .header-sociais {
-        display: flex;
-        gap: 0.7rem;
-    }
-
-    nav {
-        display: none;
-    }
-
+  nav {
+    display: none;
+  }
 }
