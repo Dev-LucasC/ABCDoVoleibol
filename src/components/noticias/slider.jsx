@@ -14,6 +14,7 @@ export const Slider = ({ slides }) => {
   const [posts, setPosts] = useState([]);
   const [imageUrls, setImageUrls] = useState([]);
 
+
   useEffect(() => {
     axios.get("https://hammerhead-app-5cwy4.ondigitalocean.app/api/noticias")
       .then((response) => {
@@ -36,6 +37,8 @@ export const Slider = ({ slides }) => {
       });
   }, []);
 
+
+
   return (
     <section>
       <div>
@@ -51,22 +54,26 @@ export const Slider = ({ slides }) => {
         scrollbar={{ draggable: true }}
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
-      
+
       >
-        {posts.map((post, index) => (
-          <SwiperSlide key={index} >
-            <div className='container_noticias'>
-              <div className='portofolio__item-img'>
-                <img src={imageUrls[index]} alt={post?.attributes?.titulo} />
+        {posts.map((post, index) => {
+          console.log("identificador", post);
+          return (
+            <SwiperSlide key={index} >
+              <div className='container_noticias'>
+                <div className='portofolio__item-img'>
+                  <img src={imageUrls[index]} alt={post?.attributes?.titulo} />
+                </div>
+                <h2>{post?.attributes?.titulo}</h2>
+                <p>{post?.attributes?.texto}</p>
+                <div className='portofolio__item-cta'>
+                  <Link to={`/noticias/${post?.id}`} className='btn'>Ver noticia</Link>
+
+                </div>
               </div>
-              <h2>{post?.attributes?.titulo}</h2>
-              <p>{post?.attributes?.texto}</p>
-              <div className='portofolio__item-cta'>
-              <Link to={`/noticias/${post?.attributes?.id}`} className='btn'>Ver noticia</Link>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          )
+        })}
       </Swiper>
     </section>
   )

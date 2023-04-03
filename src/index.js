@@ -10,7 +10,7 @@ import  Erro  from "./routes/ErrorPage"
 import { Noticias } from "./routes/Noticias"
 import { Calendario } from "./routes/Calendario"
 import NoticiaCompleta from "./routes/NoticiaCompleta";
-import {Equipes} from './routes/Equipes';
+
 
 
 const router = createBrowserRouter([
@@ -27,10 +27,6 @@ const router = createBrowserRouter([
   {
     path: "/noticias",
     element: <Noticias />
-  },
-  {
-    path: "/equipes",
-    element: <Equipes />
   },
   {
     path: "/calendario",
