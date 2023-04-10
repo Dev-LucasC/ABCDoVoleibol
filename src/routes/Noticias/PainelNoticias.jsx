@@ -42,12 +42,12 @@ export const PainelNoticias = ({ slides }) => {
                 <div key={post.id} className="news-item">
                     <div className="news-img-container">
                         <img className="news-img" src={imageUrls[index]} alt={post?.attributes?.titulo} />
-                    </div>
-                    <div className="news-text-container">
-                        <h2 className="news-text-title">{post?.attributes?.titulo}</h2>
-                        <p className="news-text-content">{post?.attributes?.texto}</p>
-                        <div className='news-link-container'>
-                            <Link to={`/noticias/${post?.attributes?.id}`} className='news-link'>Leia mais</Link>
+                        <div className="news-text-container">
+                            <h2 className="news-text-title">{post?.attributes?.titulo}</h2>
+                            <p className="news-text-content">{post?.attributes?.texto}</p>
+                            <div className='news-link-container'>
+                                <Link to={`/noticias/${post?.id}`} className='news-link'>Leia mais</Link>
+                            </div>
                         </div>
                     </div>
                 </div>

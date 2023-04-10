@@ -4,7 +4,16 @@ import axios from "axios";
 
 import { Link } from 'react-router-dom';
 
+
+
+
+
+
+
 const NoticiaIndividual = () => {
+
+  const [posts, setPosts] = useState([]);
+  const [imageUrls, setImageUrls] = useState([]);
   const [post, setPost] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
 
@@ -18,10 +27,10 @@ const NoticiaIndividual = () => {
         setPost(data);
 
         axios
-          .get("https://hammerhead-app-5cwy4.ondigitalocean.app/api/upload/files")
+          .get(`https://hammerhead-app-5cwy4.ondigitalocean.app/api/upload/files`)
           .then((response) => {
             const { data } = response;
-            const filteredData = data.filter((file) => file.caption === post?.attributes?.titulo);
+            const filteredData = data.filter((file) => file.caption === "teste");
             if (filteredData.length > 0) {
               const url = 'https://hammerhead-app-5cwy4.ondigitalocean.app' + filteredData[0].url;
               setImageUrl(url);
@@ -35,7 +44,16 @@ const NoticiaIndividual = () => {
 
 
   return (
+
+
+
+
+
+
+
     <section>
+    
+
       {post && (
         <div className="container_noticias">
           <div className="portofolio__item-img">
