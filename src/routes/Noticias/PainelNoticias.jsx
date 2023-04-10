@@ -35,23 +35,25 @@ export const PainelNoticias = ({ slides }) => {
     }, []);
 
     return (
-        <div className="news-container news-grid">
-            <h1 className="news-title">Notícias</h1>
-            <hr className="news-divider" />
-            {posts.map((post, index) => (
-                <div key={post.id} className="news-item">
-                    <div className="news-img-container">
-                        <img className="news-img" src={imageUrls[index]} alt={post?.attributes?.titulo} />
+
+        <div className="news-container">
+            <h2>Últimas notícias</h2>
+            <div className="news-grid">
+                {posts.map((post, index) => (
+                    <div key={post.id} className="news-item">
+                        <div className="news-img-container">
+                            <img className="news-img" src={imageUrls[index]} alt={post?.attributes?.titulo} />
+                        </div>
                         <div className="news-text-container">
-                            <h2 className="news-text-title">{post?.attributes?.titulo}</h2>
+                            <h3 className="news-text-title">{post?.attributes?.titulo}</h3>
                             <p className="news-text-content">{post?.attributes?.texto}</p>
-                            <div className='news-link-container'>
-                                <Link to={`/noticias/${post?.id}`} className='news-link'>Leia mais</Link>
+                            <div className="news-link-container">
+                                <Link to={`/noticias/${post?.id}`} className="news-link">Ver notícia</Link>
                             </div>
                         </div>
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     )
 
