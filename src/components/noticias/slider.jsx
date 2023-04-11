@@ -50,7 +50,7 @@ export const Slider = ({ slides }) => {
         spaceBetween={20}
         slidesPerView={1}
         navigation
-        pagination={{ clickable: true }}
+        pagination={{ clickable: true, bottom: 100 }}
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
 

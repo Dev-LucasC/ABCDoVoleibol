@@ -9,8 +9,8 @@ section {
   display: flex;
   flex-direction: column;
   text-align: center;
-  height: 80vh;
-  overflow-x: hidden;
+
+  margin-bottom: 5em;
 }
 
 .portofolio__item-img img {
