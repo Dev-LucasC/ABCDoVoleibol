@@ -46,12 +46,11 @@ export const Slider = ({ slides }) => {
         <hr size="6" width="100%" align="left" color="black"></hr>
       </div>
       <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y, EffectCube]}
+        modules={[Navigation, Pagination, A11y, EffectCube]}
         spaceBetween={20}
         slidesPerView={1}
         navigation
         pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
 
