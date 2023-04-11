@@ -5,7 +5,7 @@
   background: #eda120;
   height: 20vh;
 
-  margin: 0em 0em -2em 0em;
+  margin: 0em 0em -1em 0em;
 }
 
 .header-sociais {
@@ -79,3 +79,17 @@ nav ul li a:hover {
     display: none;
   }
 }
+
+
+@media screen and (max-width: 1440px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-logo {
+    order: 2;
+    margin-bottom: 1rem;
+  }
+}
+

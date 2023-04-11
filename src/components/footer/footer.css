@@ -7,10 +7,11 @@
 }
 
 .patrocinadores img {
-    max-width: 120px;
-    height: auto;
-    filter: grayscale(-100%);
-  }
+  max-width: 120px;
+  max-height: 80px;
+  height: auto;
+  filter: grayscale(-100%);
+}
 
 .patrocinadores {
   display: grid;

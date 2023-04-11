@@ -34,7 +34,7 @@ const PrestacaoPdf = () => {
 
     return (
         <section>
-            <main>
+            <main className='contas'>
 
                 <h1> Prestação de Contas </h1>
                 <hr size="6" width="100%" align="left" color="black"></hr>

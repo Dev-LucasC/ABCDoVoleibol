@@ -96,4 +96,21 @@
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
 }
+
+.news-item {
+  height: auto;
+}
+
+.news-img-container {
+  height: 150px;
+}
+
+.news-text-title {
+  font-size: 1.2rem;
+}
+
+.news-text-content {
+  font-size: 1rem;
+  -webkit-line-clamp: 4;
+}
 }
