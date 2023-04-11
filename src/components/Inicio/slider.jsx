@@ -61,7 +61,7 @@ export const Slider = ({ slides }) => {
             <SwiperSlide key={index} >
               <div className='container_noticias'>
                 <div className='portofolio__item-img'>
-                  <img src={imageUrls[index]} alt={post?.attributes?.titulo} />
+                  <img className="swiper-image"  src={imageUrls[index]} alt={post?.attributes?.titulo} />
                 </div>
                 <h2>{post?.attributes?.titulo}</h2>
                 <p>{post?.attributes?.texto}</p>

@@ -20,7 +20,7 @@ const Footer = () => {
   return (
     <div className='parceiros'>
       <div>
-        <h1>Parceiros</h1>
+        <h1>Apoiadores</h1>
         <div className='patrocinadores'>
           <a href="#"><img src={Fisio}  alt="" className='imagem-grande' /></a>
           <a href="#"><img src={Baggio} alt="" /></a>
