@@ -46,12 +46,11 @@ export const Slider = ({ slides }) => {
         <hr size="6" width="100%" align="left" color="black"></hr>
       </div>
       <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y, EffectCube]}
+        modules={[Navigation, Pagination, A11y, EffectCube]}
         spaceBetween={20}
         slidesPerView={1}
         navigation
-        pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
+        pagination={{ clickable: true, bottom: 100 }}
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
 
@@ -62,7 +61,7 @@ export const Slider = ({ slides }) => {
             <SwiperSlide key={index} >
               <div className='container_noticias'>
                 <div className='portofolio__item-img'>
-                  <img src={imageUrls[index]} alt={post?.attributes?.titulo} />
+                  <img className="swiper-image"  src={imageUrls[index]} alt={post?.attributes?.titulo} />
                 </div>
                 <h2>{post?.attributes?.titulo}</h2>
                 <p>{post?.attributes?.texto}</p>

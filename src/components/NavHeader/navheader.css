@@ -5,7 +5,7 @@
   background: #eda120;
   height: 20vh;
 
-  margin: 0em 0em -2em 0em;
+  margin: 0em 0em -1em 0em;
 }
 
 .header-sociais {
@@ -16,7 +16,7 @@
 .header-sociais a {
   list-style: none;
   text-decoration: none;
-  color: inherit;
+  color: white;
   font-size: 32px;
 }
 
@@ -32,14 +32,13 @@ nav ul {
   background: #1d489d;
   align-items: center;
   font-size: 20px;
-  border-bottom: 3px solid #535353;
   height: 6vh;
   
 }
 
 nav ul li a {
-  border-left: 1px solid gray;
-  border-right: 1px solid gray;
+  border-left: 1px solid #eda120;
+  border-right: 1px solid #eda120;
   padding: 0 2rem;
   list-style: none;
   text-decoration: none;
@@ -79,3 +78,17 @@ nav ul li a:hover {
     display: none;
   }
 }
+
+
+@media screen and (max-width: 1440px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-logo {
+    order: 2;
+    margin-bottom: 1rem;
+  }
+}
+

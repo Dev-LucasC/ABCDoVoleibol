@@ -18,12 +18,7 @@ const Teste = () => {
           <a href="#"><FaFacebookSquare /> </a>
           <a href="#"><FaInstagram /> </a>
         </div>
-        
       </div>
-
-
-
-
       <nav>
         <ul>
           <li>

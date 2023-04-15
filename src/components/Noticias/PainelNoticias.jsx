@@ -48,7 +48,7 @@ export const PainelNoticias = ({ slides }) => {
                             <h3 className="news-text-title">{post?.attributes?.titulo}</h3>
                             <p className="news-text-content">{post?.attributes?.texto}</p>
                             <div className="news-link-container">
-                                <Link to={`/noticias/${post?.id}`} className="news-link">Ver notícia</Link>
+                                <Link to={`/noticias/${post?.id}`} className="news-link">Ver notícia completa</Link>
                             </div>
                         </div>
                     </div>

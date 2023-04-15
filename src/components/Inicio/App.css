@@ -1,15 +1,16 @@
 section {
   width: 60%;
   overflow: hidden;
- margin: 0 auto;
+ margin: 2em auto;
+
 }
 
 .container_noticias {
   display: flex;
   flex-direction: column;
   text-align: center;
-  height: 80vh;
- 
+
+  margin-bottom: 5em;
 }
 
 .portofolio__item-img img {
@@ -47,7 +48,10 @@ section {
 
 }
 
-
+.swiper-image {
+  max-width: 100%;
+  max-height: 50vh;
+}
 @media screen and (max-width: 600px) { 
 
   section {

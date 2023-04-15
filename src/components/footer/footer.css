@@ -1,16 +1,18 @@
 .parceiros {
-  display: flex;
+  display: block;
   text-align: center;
   flex-direction: column;
   background-color: black;
-  color: Orange;
+  
+  color: white;
 }
 
 .patrocinadores img {
-    max-width: 120px;
-    height: auto;
-    filter: grayscale(-100%);
-  }
+  max-width: 120px;
+  max-height: 80px;
+  height: auto;
+  filter: grayscale(-100%);
+}
 
 .patrocinadores {
   display: grid;
@@ -24,4 +26,22 @@
 .imagem-grande {
   width: 220px !important;
   height: auto !important;
+}
+
+
+@media (max-width: 768px) {
+  .patrocinadores img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .imagem-grande {
+    width: 100%;
+    height: auto;
+  }
+
+  .patrocinadores {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 2rem;
+  }
 }

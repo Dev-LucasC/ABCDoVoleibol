@@ -18,7 +18,10 @@
 .news-item {
   display: flex;
   flex-direction: column;
+  height: 420px; /* Defina a altura que desejar */
+  margin-bottom: 2rem;
 }
+
 
 .news-img-container {
   position: relative;
@@ -53,6 +56,9 @@
   margin-bottom: 1rem;
   font-size: 1.1rem;
   line-height: 1.5;
+  color: #333;
+  font-size: large;
+  
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -63,7 +69,9 @@
 }
 
 .news-link-container {
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
 }
 
 .news-link {
@@ -73,8 +81,8 @@
   border-bottom: 2px solid #333;
   padding-bottom: 0.1rem;
   transition: all 0.3s;
- 
 }
+
 
 .news-link:hover {
   color: orange;
@@ -82,3 +90,32 @@
 }
 
 
+@media screen and (max-width: 600px) {
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+}
+
+.news-item {
+  height: auto;
+}
+
+.news-img-container {
+  height: 150px;
+}
+
+.news-text-title {
+  
+  font-size: 1rem;
+}
+
+.news-text-content {
+  font-size: 0.8rem;
+  -webkit-line-clamp: 4;
+}
+
+.news-link {
+  font-size: 1rem;
+}
+}
