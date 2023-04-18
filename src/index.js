@@ -10,6 +10,7 @@ import  Erro  from "./routes/ErrorPage"
 import { Noticias } from "./routes/Noticias"
 import { Calendario } from "./routes/Calendario"
 import NoticiaCompleta from "./routes/NoticasCompletas/NoticiaCompleta";
+import { Equipes } from "./routes/Equipes/Equipes"
 
 
 
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/calendario",
     element: <Calendario />
+  },
+  {
+    path: "/equipes",
+    element: <Equipes />
   },
   {
     path: "/noticias/:id",
