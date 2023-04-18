@@ -30,7 +30,7 @@ export const Equipes = () => {
           console.log("url1:", url); // Verificar os valores de file.associatedId e url
           setImages(prevState => ({
             ...prevState,
-            [file.associatedId]: url
+            [file.id]: url
           }));
         });
 
@@ -39,7 +39,7 @@ export const Equipes = () => {
           const url = "https://hammerhead-app-5cwy4.ondigitalocean.app" + file.url;
           setImages(prevState => ({
             ...prevState,
-            [file.associatedId]: url
+            [file.id]: url
           }));
         });
 
@@ -57,8 +57,8 @@ export const Equipes = () => {
       <NavHeader />
       <Header />
       {posts.map((post, index) => {
-        const image1Url = images[`${post.id}-equipe1`];
-        const image2Url = images[`${post.id}-equipe2`];
+       const image1Url = images[`${post.id}`];
+       const image2Url = images[`${post.id}`];
         console.log("TESTE", image1Url)
         return (
           <div className='container_noticias' key={post.id}>

@@ -24,20 +24,13 @@ const NoticiaIndividual = () => {
         setPost(data);
 
         axios
-          .get(`https://hammerhead-app-5cwy4.ondigitalocean.app/api/noticias`)
-          .then((response) => {
-            const { data } = response.data;
-            setPosts(data);
-          });
-
-        axios
           .get(`https://hammerhead-app-5cwy4.ondigitalocean.app/api/upload/files`)
           .then((response) => {
             const { data } = response;
-            const filteredData = data.filter((file) => file.caption === "teste");
+            const filteredData = data.filter((file) => file.caption === "teste" && file.attributes.titulo === post?.attributes?.titulo);
             if (filteredData.length > 0) {
               const url = "https://hammerhead-app-5cwy4.ondigitalocean.app" + filteredData[0].url;
-              setImageUrl(url);
+              setImageUrls([url]);
             }
           });
       })
@@ -56,7 +49,7 @@ const NoticiaIndividual = () => {
             {post && (
               <div className="container_noticias__individual">
                 <div className="portofolio__item-img__individual">
-                  <img src={imageUrl} alt={post?.attributes?.titulo} />
+                  <img src={imageUrls[5]} alt={post?.attributes?.titulo} />
                 </div>
                 <h2>{post?.attributes?.titulo}</h2>
                 <p>{post?.attributes?.texto}</p>
