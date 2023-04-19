@@ -6,31 +6,28 @@ import './noticiacompleta.css'
 import Header from '../../components/Header/index'
 import NavHeader from '../../components/NavHeader/NavHeader';
 
-const NoticiaIndividual = () => {
-
-  const [posts, setPosts] = useState([]);
-  const [imageUrls, setImageUrls] = useState([]);
+const NoticiaCompleta = () => {
   const [post, setPost] = useState(null);
-  const [imageUrl, setImageUrl] = useState("");
-
+  const [imageUrl, setImageUrl] = useState(""); // aqui está a declaração de imageUrl
+  
   const { id } = useParams();
   console.log(id);
 
   useEffect(() => {
     axios
-      .get(`https://hammerhead-app-5cwy4.ondigitalocean.app/api/noticias/${id}`)
+      .get(`https://hammerhead-app-5cwy4.ondigitalocean.app/api/noticias/${id}?populate=*`)
       .then((response) => {
         const { data } = response.data;
+        console.log("Teste", data)
         setPost(data);
-
         axios
           .get(`https://hammerhead-app-5cwy4.ondigitalocean.app/api/upload/files`)
           .then((response) => {
             const { data } = response;
-            const filteredData = data.filter((file) => file.caption === "teste" && file.attributes.titulo === post?.attributes?.titulo);
+            const filteredData = data.filter((file) => file.caption === "teste");
             if (filteredData.length > 0) {
               const url = "https://hammerhead-app-5cwy4.ondigitalocean.app" + filteredData[0].url;
-              setImageUrls([url]);
+              setImageUrl(url);
             }
           });
       })
@@ -38,6 +35,9 @@ const NoticiaIndividual = () => {
         console.log(error);
       });
   }, [id]);
+
+
+
 
   return (
     <>
@@ -48,9 +48,9 @@ const NoticiaIndividual = () => {
           <div className="main-news">
             {post && (
               <div className="container_noticias__individual">
-                <div className="portofolio__item-img__individual">
-                  <img src={imageUrls[5]} alt={post?.attributes?.titulo} />
-                </div>
+                {imageUrl && <div className="portofolio__item-img__individual">
+                  <img src={"https://hammerhead-app-5cwy4.ondigitalocean.app" + post.attributes.image.data.attributes.url} alt={post?.attributes?.titulo} />
+                </div>}
                 <h2>{post?.attributes?.titulo}</h2>
                 <p>{post?.attributes?.texto}</p>
                 <div className="portofolio__item-cta__individual">
@@ -67,4 +67,4 @@ const NoticiaIndividual = () => {
   );
 };
 
-export default NoticiaIndividual;
+export default NoticiaCompleta;

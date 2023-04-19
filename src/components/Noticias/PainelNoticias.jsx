@@ -13,9 +13,10 @@ export const PainelNoticias = ({ slides }) => {
     const [imageUrls, setImageUrls] = useState([]);
 
     useEffect(() => {
-        axios.get("https://hammerhead-app-5cwy4.ondigitalocean.app/api/noticias")
+        axios.get("https://hammerhead-app-5cwy4.ondigitalocean.app/api/noticias?populate=*")
             .then((response) => {
                 const { data } = response.data;
+                console.log("teste", data)
                 setPosts(data);
             })
             .catch((error) => {
@@ -42,7 +43,7 @@ export const PainelNoticias = ({ slides }) => {
                 {posts.map((post, index) => (
                     <div key={post.id} className="news-item">
                         <div className="news-img-container">
-                            <img className="news-img" src={imageUrls[index]} alt={post?.attributes?.titulo} />
+                            <img className="news-img" src={imageUrls} alt={post?.attributes?.titulo} />
                         </div>
                         <div className="news-text-container">
                             <h3 className="news-text-title">{post?.attributes?.titulo}</h3>
