@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y, EffectCube } from 'swiper';
+import { Navigation, Pagination, A11y, EffectCube } from 'swiper';
 import 'swiper/swiper-bundle.min.css';
 import './App.css'
 import { Link } from 'react-router-dom';
@@ -12,11 +12,10 @@ import axios from 'axios'
 export const Slider = ({ slides }) => {
 
   const [posts, setPosts] = useState([]);
-  const [imageUrls, setImageUrls] = useState([]);
 
 
   useEffect(() => {
-    axios.get("https://hammerhead-app-5cwy4.ondigitalocean.app/api/noticias")
+    axios.get("https://king-prawn-app-bnxyc.ondigitalocean.app/api/noticias?populate=*")
       .then((response) => {
         const { data } = response.data;
         setPosts(data);
@@ -26,16 +25,7 @@ export const Slider = ({ slides }) => {
       });
   }, []);
 
-  useEffect(() => {
-    axios
-      .get("https://hammerhead-app-5cwy4.ondigitalocean.app/api/upload/files")
-      .then((response) => {
-        const { data } = response;
-        const filteredData = data.filter((file) => file.caption === "teste");
-        const urls = filteredData.map((file) => 'https://hammerhead-app-5cwy4.ondigitalocean.app' + file.url);
-        setImageUrls(urls);
-      });
-  }, []);
+
 
 
 
@@ -54,25 +44,24 @@ export const Slider = ({ slides }) => {
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
 
-      >
-        {posts.map((post, index) => {
-          console.log("identificador", post);
-          return (
-            <SwiperSlide key={index} >
-              <div className='container_noticias'>
-                <div className='portofolio__item-img'>
-                  <img className="swiper-image"  src={imageUrls[index]} alt={post?.attributes?.titulo} />
-                </div>
-                <h2>{post?.attributes?.titulo}</h2>
-                <p>{post?.attributes?.texto}</p>
-                <div className='portofolio__item-cta'>
-                  <Link to={`/noticias/${post?.id}`} className='btn'>Ver noticia</Link>
+      >{posts.map((post, index) => {
 
-                </div>
+        return (
+          <SwiperSlide key={index}>
+            <div className='container_noticias'>
+              <div className='portofolio__item-img'>
+                <img src={"https://king-prawn-app-bnxyc.ondigitalocean.app" + post?.attributes.imagem.data[0].attributes.url} alt={post?.attributes?.titulo} />
               </div>
-            </SwiperSlide>
-          )
-        })}
+              <h2>{post?.attributes?.titulo}</h2>
+              <p>{post?.attributes?.texto}</p>
+              <div className='portofolio__item-cta'>
+                <Link to={`/noticias/${post?.id}`} className='btn'>Ver noticia</Link>
+              </div>
+            </div>
+          </SwiperSlide>
+        );
+
+      })}
       </Swiper>
     </section>
   )
