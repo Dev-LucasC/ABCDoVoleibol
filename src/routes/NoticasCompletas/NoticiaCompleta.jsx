@@ -7,35 +7,20 @@ import Header from '../../components/Header/index'
 import NavHeader from '../../components/NavHeader/NavHeader';
 
 const NoticiaCompleta = () => {
-  const [post, setPost] = useState(null);
-  const [imageUrl, setImageUrl] = useState(""); // aqui está a declaração de imageUrl
-  
-  const { id } = useParams();
-  console.log(id);
+
+  const [posts, setPosts] = useState([]);
+
 
   useEffect(() => {
-    axios
-      .get(`https://hammerhead-app-5cwy4.ondigitalocean.app/api/noticias/${id}?populate=*`)
+    axios.get("https://king-prawn-app-bnxyc.ondigitalocean.app/api/noticias?populate=*")
       .then((response) => {
         const { data } = response.data;
-        console.log("Teste", data)
-        setPost(data);
-        axios
-          .get(`https://hammerhead-app-5cwy4.ondigitalocean.app/api/upload/files`)
-          .then((response) => {
-            const { data } = response;
-            const filteredData = data.filter((file) => file.caption === "teste");
-            if (filteredData.length > 0) {
-              const url = "https://hammerhead-app-5cwy4.ondigitalocean.app" + filteredData[0].url;
-              setImageUrl(url);
-            }
-          });
+        setPosts(data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [id]);
-
+  }, []);
 
 
 
@@ -43,26 +28,20 @@ const NoticiaCompleta = () => {
     <>
       <NavHeader />
       <Header />
-      <section>
-        <div className="container-noticias__individual">
-          <div className="main-news">
-            {post && (
-              <div className="container_noticias__individual">
-                {imageUrl && <div className="portofolio__item-img__individual">
-                  <img src={"https://hammerhead-app-5cwy4.ondigitalocean.app" + post.attributes.image.data.attributes.url} alt={post?.attributes?.titulo} />
-                </div>}
-                <h2>{post?.attributes?.titulo}</h2>
-                <p>{post?.attributes?.texto}</p>
-                <div className="portofolio__item-cta__individual">
-                  <Link to={`/noticias`} className="btn">
-                    Voltar
-                  </Link>
-                </div>
+      {posts.map((post, index) => {
+        return (
+            <div className='container_noticias'>
+              <div className='portofolio__item-img'>
+                <img src={"https://king-prawn-app-bnxyc.ondigitalocean.app" + post?.attributes.imagem.data[0].attributes.url} alt={post?.attributes?.titulo} />
               </div>
-            )}
-          </div>
-        </div>
-      </section>
+              <h2>{post?.attributes?.titulo}</h2>
+              <p>{post?.attributes?.texto}</p>
+              <div className='portofolio__item-cta'>
+                <Link to={`/noticias`} className='btn'>Voltar</Link>
+              </div>
+            </div>
+        );
+      })}
     </>
   );
 };

@@ -26,9 +26,6 @@ export const Slider = ({ slides }) => {
   }, []);
 
 
-
-
-
   return (
     <section>
       <div>

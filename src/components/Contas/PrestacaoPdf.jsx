@@ -9,7 +9,7 @@ const PrestacaoPdf = () => {
     const [imageUrls, setImageUrls] = useState([]);
 
     useEffect(() => {
-        axios.get("https://hammerhead-app-5cwy4.ondigitalocean.app/api/prestacaos")
+        axios.get("https://king-prawn-app-bnxyc.ondigitalocean.app/api/prestacaos?populate=*")
             .then((response) => {
                 const { data } = response.data;
                 setPosts(data);
@@ -18,19 +18,6 @@ const PrestacaoPdf = () => {
                 console.log(error);
             });
     }, []);
-
-    useEffect(() => {
-        axios
-            .get("https://hammerhead-app-5cwy4.ondigitalocean.app/api/upload/files")
-            .then((response) => {
-                const { data } = response;
-                const filteredData = data.filter((file) => file.caption === "prestacao");
-                const urls = filteredData.map((file) => 'https://hammerhead-app-5cwy4.ondigitalocean.app' + file.url);
-                setImageUrls(urls);
-            });
-    }, []);
-
-
 
     return (
         <section>
@@ -43,7 +30,7 @@ const PrestacaoPdf = () => {
                     <div className='provedor'>
                         <h4>Provedor: {post?.attributes?.provedor} </h4>
                         <h5> Data: {post?.attributes?.data}</h5>
-                        <a  href={imageUrls[index]} download > Download PDF</a>
+                        <a href={"https://king-prawn-app-bnxyc.ondigitalocean.app" + post?.attributes.arquivo.data[0].attributes.url} target='_blank' download>Download PDF</a>
                     </div>
                 ))}
 
