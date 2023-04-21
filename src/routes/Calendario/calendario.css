@@ -5,6 +5,7 @@
     justify-content: center;
     border: 1px solid black;
     border-radius: 2em;
+
 }
 
 
@@ -12,11 +13,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
- 
-    margin-top: 1em;
+    height: 23vh;
+}
+
+
+.confronto img {
+    max-width: 100px;
+    height: 130px;
 }
 
 .confronto h1 {
     padding: 1em;
     font-size: 3em;
 }
+
+
+@media screen and (max-width: 600px) {
+   
+    .confronto img{
+        max-width: 90px;
+        height: 130px;
+    }
+
+
+    }

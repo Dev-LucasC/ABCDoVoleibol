@@ -8,9 +8,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { Contas } from "./routes/Contas"
 import  Erro  from "./routes/ErrorPage"
 import { Noticias } from "./routes/Noticias"
-import { Calendario } from "./routes/Calendario"
+import { Calendario }  from "./routes/Calendario/Calendario"
 import NoticiaCompleta from "./routes/NoticasCompletas/NoticiaCompleta";
-import { Equipes } from "./routes/Equipes/Equipes"
+import { Equipes } from "./routes/Equipes"
 
 
 

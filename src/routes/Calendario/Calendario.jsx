@@ -3,9 +3,9 @@ import axios from 'axios';
 import NavHeader from '../../components/NavHeader/NavHeader';
 import Header from '../../components/Header';
 import Footer from '../../components/footer/Footer';
-import './equipes.css'
+import './calendario.css'
 
-export const Equipes = () => {
+export const Calendario = () => {
   const [posts, setPosts] = useState([]);
 
 
@@ -32,6 +32,7 @@ export const Equipes = () => {
           <section>
             <h1> PROXIMOS JOGOS </h1>
             <div className='container_confronto'>
+            <h2>{post?.attributes?.categoria}</h2>
               <div className='confronto'>
                 <img src={"https://king-prawn-app-bnxyc.ondigitalocean.app" + post?.attributes.time1.data[0].attributes.formats.thumbnail.url} alt="" />
                 <h1>X</h1>
