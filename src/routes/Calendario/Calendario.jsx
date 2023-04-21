@@ -20,36 +20,33 @@ export const Calendario = () => {
       });
   }, []);
 
-
   return (
     <>
       <NavHeader />
       <Header />
-      {posts.map((post, index) => {
-
-        console.log("teste", post)
-        return (
-          <section>
-            <h1> PROXIMOS JOGOS </h1>
-            <div className='container_confronto'>
-            <h2>{post?.attributes?.categoria}</h2>
-              <div className='confronto'>
-                <img src={"https://king-prawn-app-bnxyc.ondigitalocean.app" + post?.attributes.time1.data[0].attributes.formats.thumbnail.url} alt="" />
-                <h1>X</h1>
-                <img src={"https://king-prawn-app-bnxyc.ondigitalocean.app" + post?.attributes.time2.data[0].attributes.formats.thumbnail.url} alt="" />
-              </div>
-              <h2>Local: {post?.attributes?.local}</h2>
-              <p>Data: {post?.attributes?.data}</p>
-              <div className='portofolio__item-cta'>
+      <div className='container_posts'>
+        {posts.map((post, index) => {
+          <h1> PROXIMOS JOGOS </h1>
+          return (
+            <div className='container_calendario'>
+              <div className='container_confronto'>
+                <h2>{post?.attributes?.categoria}</h2>
+                <div className='confronto'>
+                  <img src={"https://king-prawn-app-bnxyc.ondigitalocean.app" + post?.attributes.time1.data[0].attributes.formats.thumbnail.url} alt="" />
+                  <h1>X</h1>
+                  <img src={"https://king-prawn-app-bnxyc.ondigitalocean.app" + post?.attributes.time2.data[0].attributes.formats.thumbnail.url} alt="" />
+                  </div>
+                <h2>Local: {post?.attributes?.local}</h2>
+                <p>Data: {post?.attributes?.data}</p>
+               
+               
               </div>
             </div>
-          </section>
-        );
-      })}
-
+          );
+        })}
+      </div>
       <Footer />
-
     </>
   );
-
+  
 };
