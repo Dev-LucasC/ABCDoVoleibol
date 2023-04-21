@@ -8,7 +8,7 @@ import { Slider } from './components/Inicio/slider';
 
 import Footer from './components/footer/Footer';
 
-
+import { Confrontos } from './routes/Calendario/Confrontos';
 import { Outlet  } from 'react-router-dom';
 
 
