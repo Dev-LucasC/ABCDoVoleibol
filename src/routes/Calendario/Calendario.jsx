@@ -10,11 +10,20 @@ export const Calendario = () => {
 
   return (
     <>
+
       <NavHeader />
       <Header />
-     <Confrontos />
+      <div className='container'>
+        <div>
+          <h1> Próximos jogos </h1>
+          <hr size="6" width="100%" align="left" color="black"></hr>
+        </div>
+      </div >
+      <Confrontos />
       <Footer />
+
     </>
+
   );
-  
+
 };

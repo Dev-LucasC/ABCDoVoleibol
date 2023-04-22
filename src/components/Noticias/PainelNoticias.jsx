@@ -25,7 +25,12 @@ export const PainelNoticias = ({ slides }) => {
     return (
 
         <div className="news-container">
-            <h2>Últimas notícias</h2>
+          
+                <div>
+                    <h1>Noticias</h1>
+                    <hr size="6" width="100%" align="left" color="black"></hr>
+                </div>
+            
             <div className="news-grid">
                 {posts.map((post, index) => (
                     <div key={post.id} className="news-item">
