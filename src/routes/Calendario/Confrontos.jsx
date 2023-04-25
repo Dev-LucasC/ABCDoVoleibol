@@ -22,7 +22,6 @@ export const Confrontos = () => {
    
       <div className='container_posts'>
         {posts.map((post, index) => {
-          <h1> PROXIMOS JOGOS </h1>
           return (
             <div className='container_calendario'>
               <div className='container_confronto'>

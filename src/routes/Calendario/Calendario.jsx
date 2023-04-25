@@ -15,8 +15,9 @@ export const Calendario = () => {
       <Header />
       <div className='container'>
         <div>
-          <h1> Próximos jogos </h1>
+        <h1> Próximos jogos </h1>
           <hr size="6" width="100%" align="left" color="black"></hr>
+          
         </div>
       </div >
       <Confrontos />

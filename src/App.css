@@ -18,8 +18,9 @@ section {
 }
 
 .ajuste {
- 
-
+  align-items: center;
+  justify-content: center;
+  
 }
 
 
