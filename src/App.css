@@ -50,3 +50,21 @@ body {
 }
 
 
+
+
+.btn {
+  font-style: inherit;
+  color: orange;
+  border-radius: 1rem;
+  border: 2px solid orange;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  border: 2px solid orange;
+  color: blue;
+  background-color: transparent;
+  transform: scale(1.1);
+  padding: 1rem;
+}

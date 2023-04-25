@@ -9,6 +9,18 @@
     margin-top: 1em;
 }
 
+.swiper {
+  width: 90%;
+}
+.portofolio__item-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+
 .portofolio__item-img {
   width: 100%;
   height: 500px; /* defina a altura desejada aqui */

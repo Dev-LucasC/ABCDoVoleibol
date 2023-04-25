@@ -47,7 +47,7 @@ export const Slider = ({ slides }) => {
                   <img src={"https://king-prawn-app-bnxyc.ondigitalocean.app" + post?.attributes.imagem.data[0].attributes.url} alt={post?.attributes?.titulo} loading="lazy" />
                 </div>
                 <h2>{post?.attributes?.titulo}</h2>
-                <p>{post?.attributes?.texto}</p>
+                <p className='portofolio__item-text'>{post?.attributes?.texto}</p>
                 <div className='portofolio__item-cta'>
                   <Link to={`/noticias/${post?.id}`} className='btn'>Ver noticia</Link>
                 </div>
