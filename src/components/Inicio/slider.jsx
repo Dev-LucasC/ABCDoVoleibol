@@ -31,11 +31,11 @@ export const Slider = ({ slides }) => {
       </div>
       <div className="swiper">
         <Swiper
-          modules={[Navigation, Pagination, A11y, EffectCube]}
+          modules={[Navigation,  A11y, EffectCube]}
           spaceBetween={20}
           slidesPerView={1}
           navigation
-          pagination={{ clickable: true, bottom: 100 }}
+
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
           className="swiper-centered"

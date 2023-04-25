@@ -37,3 +37,16 @@ body {
   background-size: cover;*/
 }
 
+.ajuste_container_app {
+  
+   
+  width: 100vw;
+  padding: 0 10vw;
+}
+
+
+.ajuste_container_app hr {
+  margin-bottom: 2em;
+}
+
+

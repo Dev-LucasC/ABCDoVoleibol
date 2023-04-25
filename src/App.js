@@ -15,6 +15,10 @@ function App() {
       <Header />
       <div className="ajuste">
         <Slider />
+        <div className="ajuste_container_app"> 
+                    <h1>Proximos Jogos</h1>
+                    <hr size="6" width="100%" align="left" color="black"></hr>
+                </div>
         <Confrontos />
       </div>
       <Outlet />
