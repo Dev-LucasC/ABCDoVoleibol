@@ -7,6 +7,7 @@ import Footer from "./components/footer/Footer";
 
 import { Confrontos } from "./routes/Calendario/Confrontos";
 import { Outlet } from "react-router-dom";
+import ContatoForm from "./components/Contato/Contato";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Confrontos />
       </div>
       <Outlet />
+      <ContatoForm />
       <Footer />
     </>
   );

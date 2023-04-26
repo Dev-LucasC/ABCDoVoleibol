@@ -21,7 +21,7 @@ export const Confrontos = () => {
   return (
    
       <div className='container_posts'>
-        {posts.map((post, index) => {
+        {posts.slice(0, 3).map((post, index) => {
           <h1> PROXIMOS JOGOS </h1>
           return (
             <div className='container_calendario'>
