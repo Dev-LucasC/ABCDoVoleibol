@@ -1,13 +1,14 @@
 .container{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin-bottom: 2em;
 }
 
 .mapa {
   border: 1px solid black;
-  padding: 0.5em;
+  padding: 1em;
   border-radius: 2em;
   height: 600px;
 }
@@ -21,11 +22,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2rem auto;
   flex-basis: 50%;
   max-width: 600px;
   border: 1px solid black;
-  padding: 0.5em;
+  padding: 1em;
   border-radius: 2em;
   height: 600px;
 }
@@ -83,6 +83,7 @@ button[type='submit']:hover {
   }
   
   .mapa {
+    margin-bottom: 2em;
     
     height: 300px; /* ou outro valor que se adeque melhor ao seu site em dispositivos móveis */
   }
@@ -96,5 +97,9 @@ button[type='submit']:hover {
     max-width: 100%;
     height: 80%;
     border-radius: 2em;
+  }
+
+  .contato-form h1{
+    font-size: 24px;
   }
 }
