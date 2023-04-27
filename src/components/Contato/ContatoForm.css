@@ -1,51 +1,100 @@
+.container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.mapa {
+  border: 1px solid black;
+  padding: 0.5em;
+  border-radius: 2em;
+  height: 600px;
+}
+
+.mapa iframe {
+  max-width: 100%;
+  height: 90%;
+}
+
 .contato-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+  flex-basis: 50%;
+  max-width: 600px;
+  border: 1px solid black;
+  padding: 0.5em;
+  border-radius: 2em;
+  height: 600px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+input[type='text'],
+input[type='email'],
+textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+textarea {
+  height: 100px;
+}
+
+button[type='submit'] {
+  padding: 0.5rem;
+  background-color: #0077ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button[type='submit']:hover {
+  background-color: #0055cc;
+}
+
+
+@media (max-width: 767px) { /* ajuste o valor 767px de acordo com suas necessidades */
+  .container {
+   
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 2rem auto;
-    width: 90%;
-    max-width: 600px;
+    width: 100vw;
+
   }
   
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    width: 100%;
+  .mapa {
+    
+    height: 300px; /* ou outro valor que se adeque melhor ao seu site em dispositivos móveis */
   }
-  
-  label {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+
+  .mapa h1 {
+    font-size: 24px;
+    margin-bottom: 0.5em;
   }
-  
-  input[type='text'],
-  input[type='email'],
-  textarea {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    margin-top: 0.5rem;
+
+  .mapa iframe {
+    max-width: 100%;
+    height: 80%;
+    border-radius: 2em;
   }
-  
-  textarea {
-    height: 200px;
-  }
-  
-  button[type='submit'] {
-    padding: 0.5rem;
-    background-color: #0077ff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  button[type='submit']:hover {
-    background-color: #0055cc;
-  }
-  
+}
