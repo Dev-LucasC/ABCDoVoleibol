@@ -34,10 +34,6 @@ const router = createBrowserRouter([
     element: <Calendario />
   },
   {
-    path: "/equipes",
-    element: <Equipes />
-  },
-  {
     path: "/noticias/:id",
     element: <NoticiaCompleta />
   }
