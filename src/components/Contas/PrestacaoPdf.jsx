@@ -30,8 +30,8 @@ const PrestacaoPdf = () => {
                     <div className='provedor'>
                         <h4>Provedor: {post?.attributes?.provedor} </h4>
                         <h5> Data: {post?.attributes?.data}</h5>
-                        <a href={"https://king-prawn-app-bnxyc.ondigitalocean.app" + post?.attributes.arquivo.data[0].attributes.url} target='_blank' download>Download PDF</a>
-                    </div>
+                        <a href={"https://king-prawn-app-bnxyc.ondigitalocean.app" + post?.attributes.pdf.data[0]?.attributes.url} target="_blank" download>Download PDF</a>
+                    </div>                  
                 ))}
 
             </main>

@@ -8,7 +8,7 @@
   .container_calendario {
     max-width: 600px;
     width: 90%;
-    margin: 20px;
+    margin: 2em auto; /* Adiciona 'auto' para centralizar horizontalmente */
     padding: 20px;
     border: 1px solid #ccc;
     text-align: center;
@@ -20,9 +20,10 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    
   }
 
-  .container {
+  .container__calendario {
     margin-top: 5rem;
    
     width: 100vw;
