@@ -30,7 +30,7 @@ export const Confrontos = () => {
                 <img src={"https://king-prawn-app-bnxyc.ondigitalocean.app" + post?.attributes.time2.data.attributes.formats.thumbnail.url} alt="" />
               </div>
               <h2>Local: {post?.attributes?.local}</h2>
-              <p>Data: {post?.attributes?.data}</p>
+              <p>Data: {post?.attributes?.data.split('-').reverse().join('/')}</p>
             </div>
           </div>
         );
