@@ -28,8 +28,8 @@ const NoticiaCompleta = () => {
     <>
       <NavHeader />
       <Header />
-      <div className='container_noticias-completa'>
-        <div className='portofolio__item-completo-img'>
+      <div className='container-noticias_completa'>
+        <div className='container-noticiascompleta_img'>
           <img src={"https://king-prawn-app-bnxyc.ondigitalocean.app" + post?.attributes.imagem.data[0].attributes.url} alt={post?.attributes?.titulo} />
         </div>
         <h2>{post?.attributes?.titulo}</h2>
