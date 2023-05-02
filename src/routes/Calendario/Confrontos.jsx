@@ -19,7 +19,7 @@ export const Confrontos = () => {
 
   return (
     <>
-      {posts.slice(0, 3).map((post, index) => {
+      {posts.slice(0, 6).map((post, index) => {
         return (
           <div key={index} className='container_calendario'>
             <div className='container_confronto'>
