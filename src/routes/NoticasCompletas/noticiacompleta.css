@@ -1,4 +1,4 @@
-.container_noticias {
+.container-noticias_completa {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,19 +9,19 @@
   
  
 
-  .container_noticias h2 {
+  .container-noticias_completa h2 {
     text-align: center;
     font-weight: bold;
     font-size: 48px;
   }
   
-  .portofolio__item-img  {
+  .container-noticiascompleta_img {
     max-width: 800px;
     margin-top: 2em;
     height: auto;
   }
   
-  .portofolio__item-cta__individual {
+  .portofolio__item-cta-completa {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
