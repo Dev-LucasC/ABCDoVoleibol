@@ -1,0 +1,35 @@
+.album {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .year-dropdown {
+    margin-bottom: 20px;
+  }
+  
+  .photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+  
+  .photo {
+    position: relative;
+  }
+  
+  .photo img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .photo .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 14px;
+  }
+  
