@@ -9,7 +9,7 @@ const PrestacaoPdf = () => {
     const [imageUrls, setImageUrls] = useState([]);
 
     useEffect(() => {
-        axios.get("https://king-prawn-app-bnxyc.ondigitalocean.app/api/prestacaos?populate=*")
+        axios.get("https://shark-app-6myi8.ondigitalocean.app/api/prestacaos?populate=*")
             .then((response) => {
                 const { data } = response.data;
                 setPosts(data);
@@ -30,7 +30,7 @@ const PrestacaoPdf = () => {
                     <div className='provedor'>
                         <h4>Provedor: {post?.attributes?.provedor} </h4>
                         <h5> Data: {post?.attributes?.data}</h5>
-                        <a href={"https://king-prawn-app-bnxyc.ondigitalocean.app" + post?.attributes.pdf.data[0]?.attributes.url} target="_blank" download>Download PDF</a>
+                        <a href={post?.attributes.pdf.data[0]?.attributes.url} target="_blank" download>Download PDF</a>
                     </div>                  
                 ))}
 

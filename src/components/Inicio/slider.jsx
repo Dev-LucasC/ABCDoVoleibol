@@ -13,7 +13,7 @@ export const Slider = ({ slides }) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get("https://king-prawn-app-bnxyc.ondigitalocean.app/api/noticias?populate=*")
+    axios.get("https://shark-app-6myi8.ondigitalocean.app/api/noticias?populate=*")
       .then((response) => {
         const { data } = response.data;
         setPosts(data);
@@ -44,7 +44,7 @@ export const Slider = ({ slides }) => {
             <SwiperSlide key={index}>
               <div className='container_noticias'>
                 <div className='portofolio__item-img'>
-                  <img src={"https://king-prawn-app-bnxyc.ondigitalocean.app" + post?.attributes.imagem.data[0].attributes.url} alt={post?.attributes?.titulo} loading="lazy" />
+                  <img src={post?.attributes.imagem.data.attributes.url} alt={post?.attributes?.titulo} loading="lazy" />
                 </div>
                 <h2>{post?.attributes?.titulo}</h2>
                 <p className='portofolio__item-text'>{post?.attributes?.texto}</p>

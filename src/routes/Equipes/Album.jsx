@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './dropdownequipes.css'
-
-
 const Album = () => {
   const [posts, setPosts] = useState({});
   const [selectedYear, setSelectedYear] = useState(null);
@@ -28,6 +26,14 @@ const Album = () => {
         });
 
         setPosts(photosByYear);
+
+        // Obter o ano atual
+        const currentYear = new Date().getFullYear().toString();
+
+        // Definir o último ano ou o ano mais recente como selecionado
+        const lastYear = Object.keys(photosByYear)[0];
+        const mostRecentYear = Object.keys(photosByYear).find(year => year === currentYear) || lastYear;
+        setSelectedYear(mostRecentYear);
       })
       .catch((error) => {
         console.log(error);
@@ -66,8 +72,6 @@ const Album = () => {
           </>
         )}
       </div>
-
-     
     </div>
   );
 };

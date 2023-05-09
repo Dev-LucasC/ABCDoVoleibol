@@ -7,7 +7,7 @@ export const PainelNoticias = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        axios.get("https://king-prawn-app-bnxyc.ondigitalocean.app/api/noticias?populate=*")
+        axios.get("https://shark-app-6myi8.ondigitalocean.app/api/noticias?populate=*")
             .then((response) => {
                 const { data } = response.data;
                 const sortedData = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
@@ -28,13 +28,7 @@ export const PainelNoticias = () => {
                 {posts.map((post, index) => (
                     <div key={post.id} className="news-item">
                         <div className="news-img-container">
-                            <img
-                                src={
-                                    "https://king-prawn-app-bnxyc.ondigitalocean.app" +
-                                    post?.attributes.imagem.data[0].attributes.url
-                                }
-                                alt={post?.attributes?.titulo}
-                            />
+                            <img src={post?.attributes.imagem.data.attributes.url} alt={post?.attributes?.titulo} loading="lazy" />
                         </div>
                         <div className="news-text-container">
                             <h3 className="news-text-title">{post?.attributes?.titulo}</h3>

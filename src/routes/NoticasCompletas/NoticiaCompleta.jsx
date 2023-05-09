@@ -10,7 +10,7 @@ const NoticiaCompleta = () => {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    axios.get(`https://king-prawn-app-bnxyc.ondigitalocean.app/api/noticias/${id}?populate=*`)
+    axios.get(`https://shark-app-6myi8.ondigitalocean.app/api/noticias/${id}?populate=*`)
       .then((response) => {
         const { data } = response.data;
         setPost(data);
@@ -30,7 +30,7 @@ const NoticiaCompleta = () => {
       <Header />
       <div className='container-noticias_completa'>
         <div className='container-noticiascompleta_img'>
-          <img src={"https://king-prawn-app-bnxyc.ondigitalocean.app" + post?.attributes.imagem.data[0].attributes.url} alt={post?.attributes?.titulo} />
+         <img src={post?.attributes.imagem.data.attributes.url} alt={post?.attributes?.titulo} loading="lazy" />
         </div>
         <h2>{post?.attributes?.titulo}</h2>
         <p>{post?.attributes?.texto}</p>
