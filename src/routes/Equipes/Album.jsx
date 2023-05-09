@@ -1,41 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Album = () => {
-  const [selectedYear, setSelectedYear] = useState(null);
-  const [photos, setPhotos] = useState([]);
+  const [posts, setPosts] = useState([]);
 
-  const anos = [2016, 2017, 2018]; // Exemplo de anos disponíveis
-
-  const handleYearSelect = async (year) => {
-    setSelectedYear(year);
-    try {
-      const response = await axios.get(`/api/photos/${year}`); // Rota da API para obter as fotos do ano
-      setPhotos(response.data); // Atualiza o estado com as fotos recebidas
-    } catch (error) {
-      console.log('Erro ao buscar as fotos:', error);
-    }
-  };
+  useEffect(() => {
+    axios
+      .get("http://localhost:1337/api/albums?populate=*")
+      .then((response) => {
+        const { data } = response.data;
+        console.log("Data:", data);
+        const sortedData = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        const filteredData = sortedData.slice(0, 9);
+        console.log("Filtered Data:", filteredData);
+        setPosts(filteredData);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
-    <div className="album">
-      <div className="year-dropdown">
-        <span>Selecione um ano:</span>
-        <select value={selectedYear} onChange={(e) => handleYearSelect(e.target.value)}>
-          <option value="">Selecione...</option>
-          {anos.map((ano) => (
-            <option key={ano} value={ano}>
-              {ano}
-            </option>
-          ))}
-        </select>
+    <div className="news-container">
+      <div>
+        <h1>Noticias</h1>
+        <hr size="6" width="100%" align="left" color="black" />
       </div>
-
-      <div className="photos">
-        {photos.map((photo) => (
-          <div key={photo.id} className="photo">
-            <img src={photo.url} alt={photo.title} />
-            <div className="caption">{photo.title}</div>
+      <div className="news-grid">
+        {posts.map((post, index) => (
+          <div key={post.id} className="news-item">
+            <div className="news-img-container">
+           
+                <img
+                  src={post?.attributes?.fotos?.data?.[0]?.attributes?.url}
+                  alt="Imagem"
+                />
+              )
+            </div>
           </div>
         ))}
       </div>
