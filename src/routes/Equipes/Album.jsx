@@ -1,45 +1,73 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './dropdownequipes.css'
+
 
 const Album = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState({});
+  const [selectedYear, setSelectedYear] = useState(null);
 
   useEffect(() => {
     axios
-      .get("http://localhost:1337/api/albums?populate=*")
+      .get('http://localhost:1337/api/albums?populate=*')
       .then((response) => {
         const { data } = response.data;
-        console.log("Data:", data);
+        console.log('Data:', data);
+
         const sortedData = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-        const filteredData = sortedData.slice(0, 9);
-        console.log("Filtered Data:", filteredData);
-        setPosts(filteredData);
+        console.log('Sorted Data:', sortedData);
+
+        // Separar as fotos por ano
+        const photosByYear = {};
+        sortedData.forEach((post) => {
+          const year = post.attributes.Ano;
+          if (!photosByYear[year]) {
+            photosByYear[year] = [];
+          }
+          photosByYear[year].push(...post.attributes.fotos.data);
+        });
+
+        setPosts(photosByYear);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
 
+  const handleYearClick = (year) => {
+    setSelectedYear(year);
+  };
+
   return (
-    <div className="news-container">
-      <div>
-        <h1>Noticias</h1>
-        <hr size="6" width="100%" align="left" color="black" />
-      </div>
-      <div className="news-grid">
-        {posts.map((post, index) => (
-          <div key={post.id} className="news-item">
-            <div className="news-img-container">
-           
-                <img
-                  src={post?.attributes?.fotos?.data?.[0]?.attributes?.url}
-                  alt="Imagem"
-                />
-              )
-            </div>
-          </div>
+    <div className="album-container">
+      <h1>Álbum</h1>
+      <hr size="6" width="100%" align="left" color="black" />
+
+      <div className="year-list">
+        {Object.keys(posts).map((year) => (
+          <button
+            key={year}
+            className={`year-button ${selectedYear === year ? 'selected' : ''}`}
+            onClick={() => handleYearClick(year)}
+          >
+            {year}
+          </button>
         ))}
       </div>
+
+      <div className="photo-grid">
+        {selectedYear && (
+          <>
+            {posts[selectedYear].map((photo) => (
+              <div key={photo.id} className="photo-item">
+                <img src={photo.attributes.url} alt="Imagem" />
+              </div>
+            ))}
+          </>
+        )}
+      </div>
+
+     
     </div>
   );
 };
