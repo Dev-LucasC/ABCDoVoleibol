@@ -42,3 +42,13 @@
   height: 100%;
   object-fit: cover;
 }
+
+@media (max-width: 768px) {
+  .photo-grid {
+    flex-direction: column;
+  }
+  
+  .photo-item {
+    width: 100%;
+  }
+}

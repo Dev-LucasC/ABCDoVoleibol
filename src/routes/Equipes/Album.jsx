@@ -9,7 +9,7 @@ const Album = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:1337/api/albums?populate=*')
+      .get('https://shark-app-6myi8.ondigitalocean.app/api/albums?populate=*')
       .then((response) => {
         const { data } = response.data;
         console.log('Data:', data);
