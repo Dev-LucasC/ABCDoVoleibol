@@ -1,5 +1,7 @@
 .album-container {
-  padding: 20px;
+  width: 100vw;
+  padding: 0 10vw;
+  margin-top: 2em;
 }
 
 .year-list {
@@ -22,12 +24,21 @@
 }
 
 .photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.photo-item {
+  width: 50%;
+  height: auto;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .photo-item img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
