@@ -11,7 +11,7 @@ import { Noticias } from "./routes/Noticias"
 import { Calendario }  from "./routes/Calendario/Calendario"
 import NoticiaCompleta from "./routes/NoticasCompletas/NoticiaCompleta";
 import  Equipes  from "./routes/Equipes/Equipes"
-
+import Associacao from "./routes/Associacao"
 
 
 const router = createBrowserRouter([
@@ -24,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/contas",
     element: <Contas />
+  },
+  {
+    path: "/associacao",
+    element: <Associacao />
   },
   {
     path: "/equipes",

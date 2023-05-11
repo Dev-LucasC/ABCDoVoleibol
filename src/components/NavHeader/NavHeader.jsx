@@ -35,7 +35,7 @@ const Teste = () => {
             <Link to="/calendario"> Calendario</Link>
           </li>
           <li>
-            <Link to="/"> A associação</Link>
+            <Link to="/associacao"> A associação</Link>
           </li>
         </ul>
       </nav>
