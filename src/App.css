@@ -10,8 +10,8 @@
 }
 
 section {
-  margin-top: 5rem;
-  height: 100vh;
+  margin: 5rem 0;
+  height: auto;
   width: 100vw;
   padding: 0 10vw;
   

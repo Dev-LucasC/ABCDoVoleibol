@@ -17,13 +17,12 @@
     left: 10px; /* Ajustado para a barra estar mais próxima ao texto */
     top: 0; /* Posição fixa no topo */
   }
+
+
   
   
   
-  
-  .introducao {
-    margin: 2em 0;
-  }
+
   
   .associacao_titulo {
     text-align: center;
@@ -37,7 +36,8 @@
   }
   
   .associacao_objetivos {
-    margin-top: 3em;
+    margin: 3em 0;
+   
   }
   
   .associacao_objetivos h1 {
@@ -64,3 +64,6 @@
   }
   
 
+Footer {
+    width: 100vw;
+}

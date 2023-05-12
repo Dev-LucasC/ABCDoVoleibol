@@ -9,6 +9,7 @@ const Associacao = () => {
     <>
       <Teste />
       <Header />
+
       <section>
         <h1 className='associacao_hr'>A Associação</h1>
 
@@ -32,31 +33,25 @@ const Associacao = () => {
               regional, estadual e nacional, também são englobados pelo trabalho.
             </p>
           </div>
+
+          <div className='associacao_objetivos'>
+            <h1>Objetivos</h1>
+            <ul>
+              <li>
+                Desenvolver o voleibol dentro do município de Balneário Camboriú, no Estado de Santa Catarina e no Brasil
+                através de treinamentos e participações de Campeonatos.
+              </li>
+              <li>
+                Influenciar positivamente os atletas no desenvolvimento de sua formação crítica nas tomadas de decisões diante
+                de situações de dificuldades no jogo.
+              </li>
+              <li>Contribuir para a formação dos atletas através de uma boa alimentação e hospedagem.</li>
+            </ul>
+          </div>
         </div>
-
-        <div className='associacao_objetivos'>
-          <h1>Objetivos</h1>
-          <ul>
-            <li>
-              Desenvolver o voleibol dentro do município de Balneário Camboriú, no Estado de Santa Catarina e no Brasil
-              através de treinamentos e participações de Campeonatos.
-            </li>
-            <li>
-              Influenciar positivamente os atletas no desenvolvimento de sua formação crítica nas tomadas de decisões diante
-              de situações de dificuldades no jogo.
-            </li>
-            <li>Contribuir para a formação dos atletas através de uma boa alimentação e hospedagem.</li>
-          </ul>
-        </div>
-
- 
-
-        <Footer className="Footer" />
-
-     
       </section>
+      <Footer/>
     </>
-      
   );
 };
 
