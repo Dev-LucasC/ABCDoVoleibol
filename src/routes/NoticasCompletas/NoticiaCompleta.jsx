@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import './noticiacompleta.css'
@@ -9,12 +9,14 @@ const NoticiaCompleta = () => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
   const [posts, setPosts] = useState([]);
+  const newsRef = useRef(null); // Referência para a div da notícia
 
   useEffect(() => {
     axios.get(`https://shark-app-6myi8.ondigitalocean.app/api/noticias/${id}?populate=*`)
       .then((response) => {
         const { data } = response.data;
         setPost(data);
+        scrollToNews(); // Chama a função para rolar a página quando o post for carregado
       })
       .catch((error) => {
         console.log(error);
@@ -32,6 +34,15 @@ const NoticiaCompleta = () => {
       });
   }, [id]);
 
+  const scrollToNews = () => {
+    if (newsRef.current) {
+      newsRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   if (!post) {
     return <p>Carregando...</p>;
   }
@@ -41,12 +52,11 @@ const NoticiaCompleta = () => {
       <NavHeader />
       <Header />
       <div className="news-container">
-        <div className="news-details">
+        <div ref={newsRef} className="news-details">
           <h2>{post?.attributes?.titulo}</h2>
           <div className="news-image">
             <img src={post?.attributes.imagem.data.attributes.url} alt={post?.attributes?.titulo} loading="lazy" />
           </div>
-
           <p>{post?.attributes?.texto}</p>
           <div className="news-link-container">
             <Link to={`/noticias`} className="news-link">
