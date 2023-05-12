@@ -1,12 +1,15 @@
 footer {
     background-color: black;
+    padding: 0vw;
 }
+
 
 
 @media screen and (max-width: 600px) {
    footer {
-    height: 30vh;
+    
     object-fit: cover;
+    padding: 0vw;
    }
 
 

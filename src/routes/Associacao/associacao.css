@@ -1,0 +1,66 @@
+.associacao_hr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2em;
+    font-size: 32px;
+    position: relative; /* Adicionado position: relative */
+  }
+  
+  .associacao_hr::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 100%;
+    background-color: orange;
+    position: absolute;
+    left: 10px; /* Ajustado para a barra estar mais próxima ao texto */
+    top: 0; /* Posição fixa no topo */
+  }
+  
+  
+  
+  
+  .introducao {
+    margin: 2em 0;
+  }
+  
+  .associacao_titulo {
+    text-align: center;
+    margin-bottom: 2em;
+  }
+  
+  .associacao_texto {
+    margin-bottom: 2em;
+    font-weight: 500;
+    font-size: 18px;
+  }
+  
+  .associacao_objetivos {
+    margin-top: 3em;
+  }
+  
+  .associacao_objetivos h1 {
+    margin-bottom: 1em;
+    text-align: center;
+  }
+  
+  .associacao_objetivos ul {
+    list-style-type: none;
+    padding-left: 0;
+ 
+  }
+  
+  .associacao_objetivos li {
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 0.9em;
+  
+  }
+  
+  .associacao_objetivos li::before {
+    content: "-";
+    margin-right: 0.5em;
+  }
+  
+
