@@ -33,6 +33,7 @@
     margin-bottom: 2em;
     font-weight: 500;
     font-size: 18px;
+    letter-spacing: 2px;
   }
   
   .associacao_objetivos {
@@ -43,18 +44,21 @@
   .associacao_objetivos h1 {
     margin-bottom: 1em;
     text-align: center;
+    font-size: 32px;
   }
   
   .associacao_objetivos ul {
     list-style-type: none;
     padding-left: 0;
- 
+   
   }
   
   .associacao_objetivos li {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 0.9em;
+    letter-spacing: 2px;
+
   
   }
   
