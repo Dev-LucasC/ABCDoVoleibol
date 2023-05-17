@@ -38,7 +38,8 @@ const Sidebar = ({ active }) => {
         <Link to="/contas"> <SidebarItem Icon={FaFileInvoiceDollar} Text="Prestação de contas" /></Link>
         <Link to="/equipes"><SidebarItem Icon={FaMedal} Text="Equipes" /> </Link>
         <Link to="/calendario"><SidebarItem Icon={FaRegCalendarAlt} Text="Calendario" /></Link>
-        
+        <Link to="/associacao"><SidebarItem Icon={FaRegFileAlt} Text="A Associação" /></Link>
+
       </Content>
     </Container>
   )
