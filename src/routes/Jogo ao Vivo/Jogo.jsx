@@ -3,7 +3,7 @@ import Header from '../../components/Header';
 import Teste from '../../components/NavHeader/NavHeader';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-
+import "./jogo.css"
 const Jogo = () => {
   const [posts, setPosts] = useState([]);
 
@@ -23,22 +23,15 @@ const Jogo = () => {
       <Teste />
       <Header />
       <div className="iframe-container">
-        {posts.slice(0, -1).map((post) => (
+        {posts.map((post, index) => (
           <iframe
-            className="responsive-iframe finished"
+            key={index}
+            className={`responsive-iframe ${index === posts.length - 1 ? 'main-video' : 'finished'}`}
             src={post?.attributes.link}
             allowFullScreen
             title="Live Stream"
           ></iframe>
         ))}
-        {posts.length > 0 && (
-          <iframe
-            className="responsive-iframe main-video"
-            src={posts[posts.length - 1]?.attributes.link}
-            allowFullScreen
-            title="Live Stream"
-          ></iframe>
-        )}
       </div>
       <Footer />
     </>
