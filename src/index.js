@@ -12,7 +12,7 @@ import { Calendario }  from "./routes/Calendario/Calendario"
 import NoticiaCompleta from "./routes/NoticasCompletas/NoticiaCompleta";
 import  Equipes  from "./routes/Equipes/Equipes"
 import Associacao from "./routes/Associacao/Associacao"
-
+import Jogo from "./routes/Jogo ao Vivo/Jogo"
 
 const router = createBrowserRouter([
   {
@@ -24,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/contas",
     element: <Contas />
+  },
+  {
+    path: "/jogoaovivo",
+    element: <Jogo />
   },
   {
     path: "/associacao",
