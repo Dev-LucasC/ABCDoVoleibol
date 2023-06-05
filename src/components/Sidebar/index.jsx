@@ -13,7 +13,8 @@ import {
   FaFilePdf,
   FaFileInvoiceDollar,
   FaNewspaper,
-  FaMedal
+  FaMedal,
+  FaRegPlayCircle
 } from 'react-icons/fa'
 
 import { HiClipboardDocumentList } from 'react-icons/hi'
@@ -39,6 +40,8 @@ const Sidebar = ({ active }) => {
         <Link to="/equipes"><SidebarItem Icon={FaMedal} Text="Equipes" /> </Link>
         <Link to="/calendario"><SidebarItem Icon={FaRegCalendarAlt} Text="Calendario" /></Link>
         <Link to="/associacao"><SidebarItem Icon={FaRegFileAlt} Text="A Associação" /></Link>
+        <Link to="/jogoaovivo"><SidebarItem Icon={FaRegPlayCircle} Text="Jogo ao Vivo" /></Link>
+
 
       </Content>
     </Container>

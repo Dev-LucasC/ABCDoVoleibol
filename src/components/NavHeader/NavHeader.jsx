@@ -37,6 +37,9 @@ const Teste = () => {
           <li>
             <Link to="/associacao"> A associação</Link>
           </li>
+          <li>
+            <Link to="/jogoaovivo"> Jogo ao Vivo</Link>
+          </li>
         </ul>
       </nav>
 
