@@ -27,12 +27,36 @@
     width: 40%;
     
   }
+  .btn-container {
+    margin-top: 1em;
+  }
+  
 
   .container__calendario {
     margin-top: 5rem;
    
     width: 100vw;
     padding: 0 10vw;
+  }
+
+  .btn_01 {
+    font-style: inherit;
+    color: orange;
+    border-radius: 2rem;
+    border: 2px solid orange;
+    transition: all 0.3s ease;
+  }
+
+.btn_01:hover {
+  border: 2px solid orange;
+  color: blue;
+  background-color: transparent;
+  transform: scale(1.1);
+  padding: 1rem;
+}
+
+  .container_confronto {
+    padding: 0em;
   }
 
 
