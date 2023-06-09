@@ -1,21 +1,31 @@
-.iframe-container {
-    width: 90%;
-    height: 70vh;
-    max-width: 1200px; /* Defina o valor máximo para evitar que o contêiner se estique muito */
-    margin: 10vh auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .responsive-iframe {
-    width: 100%;
-    height: 100%;
-  }
-  
-  @media screen and (max-width: 767px) {
-    .iframe-container {
-      height: 50vh; /* Permite que a altura se ajuste ao conteúdo */
-    }
-  }
-  
+.live-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10vh auto;
+  width: 90%;
+  max-width: 1200px;
+  height: 70vh;
+}
+
+.live-container .main-video {
+  width: 100%;
+  height: 100%;
+}
+
+.separator {
+  width: 100%;
+  text-align: center;
+  height: 1px;
+  margin: 2em 0;
+}
+
+.finished-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}

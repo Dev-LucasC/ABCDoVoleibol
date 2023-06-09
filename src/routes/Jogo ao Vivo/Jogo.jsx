@@ -4,11 +4,13 @@ import Teste from '../../components/NavHeader/NavHeader';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import "./jogo.css"
+
 const Jogo = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get("https://shark-app-6myi8.ondigitalocean.app/api/lives?populate=*&sort=createdAt:asc")
+    axios
+      .get("https://shark-app-6myi8.ondigitalocean.app/api/lives?populate=*&sort=createdAt:asc")
       .then((response) => {
         const { data } = response.data;
         setPosts(data);
@@ -18,20 +20,35 @@ const Jogo = () => {
       });
   }, []);
 
+  const mainVideo = posts[posts.length - 1];
+  const finishedVideos = posts.slice(0, -1);
+
   return (
     <>
       <Teste />
       <Header />
-      <div className="iframe-container">
-        {posts.map((post, index) => (
+      <div className="live-container">
+        {mainVideo && (
           <iframe
-            key={index}
-            className={`responsive-iframe ${index === posts.length - 1 ? 'main-video' : 'finished'}`}
-            src={post?.attributes.link}
+            className="responsive-iframe main-video"
+            src={mainVideo?.attributes.link}
             allowFullScreen
             title="Live Stream"
           ></iframe>
-        ))}
+        )}
+        <div className="separator">        <h1>Jogos passados</h1>
+</div> {/* Adicione um elemento visual para separar */}
+        <div className="finished-container">
+          {finishedVideos.map((post, index) => (
+            <iframe
+              key={index}
+              className="responsive-iframe finished"
+              src={post?.attributes.link}
+              allowFullScreen
+              title="Live Stream"
+            ></iframe>
+          ))}
+        </div>
       </div>
       <Footer />
     </>
