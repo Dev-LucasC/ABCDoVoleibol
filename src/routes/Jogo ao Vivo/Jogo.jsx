@@ -21,7 +21,7 @@ const Jogo = () => {
   }, []);
 
   const mainVideo = posts[posts.length - 1];
-  const finishedVideos = posts.slice(0, -1);
+  const finishedVideos = posts.slice(-3); // Mostrar apenas os 3 vídeos mais recentes
 
   return (
     <>
@@ -36,8 +36,8 @@ const Jogo = () => {
             title="Live Stream"
           ></iframe>
         )}
-        <div className="separator">        <h1>Jogos passados</h1>
-</div> {/* Adicione um elemento visual para separar */}
+        <div className="separator"></div>
+        <h1>Jogos passados</h1>
         <div className="finished-container">
           {finishedVideos.map((post, index) => (
             <iframe
