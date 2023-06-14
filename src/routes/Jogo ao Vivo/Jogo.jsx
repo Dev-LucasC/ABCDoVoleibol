@@ -1,12 +1,16 @@
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/Header';
 import Teste from '../../components/NavHeader/NavHeader';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from 'axios';
+
 import "./jogo.css"
 
 const Jogo = () => {
   const [posts, setPosts] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleVideos, setVisibleVideos] = useState([]);
+  const sliderRef = useRef(null);
 
   useEffect(() => {
     axios
@@ -20,8 +24,25 @@ const Jogo = () => {
       });
   }, []);
 
+  useEffect(() => {
+    const endIndex = currentIndex + 3;
+    const videos = posts.slice(currentIndex, endIndex);
+    setVisibleVideos(videos);
+  }, [currentIndex, posts]);
+
   const mainVideo = posts[posts.length - 1];
-  const finishedVideos = posts.slice(-3); // Mostrar apenas os 3 vídeos mais recentes
+
+  const goToPreviousSlide = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+
+  const goToNextSlide = () => {
+    if (currentIndex < posts.length - 4) {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
 
   return (
     <>
@@ -38,16 +59,28 @@ const Jogo = () => {
         )}
         <div className="separator"></div>
         <h1>Jogos passados</h1>
-        <div className="finished-container">
-          {finishedVideos.map((post, index) => (
-            <iframe
-              key={index}
-              className="responsive-iframe finished"
-              src={post?.attributes.link}
-              allowFullScreen
-              title="Live Stream"
-            ></iframe>
-          ))}
+        <div className="carousel-container">
+          <div className="finished-container" ref={sliderRef}>
+            {visibleVideos.map((post, index) => (
+              <iframe
+                key={index}
+                className="responsive-iframe finished"
+                src={post?.attributes.link}
+                allowFullScreen
+                title="Live Stream"
+              ></iframe>
+            ))}
+          </div>
+          {currentIndex > 0 && (
+            <button className="carousel-arrow previous" onClick={goToPreviousSlide}>
+              &lt;
+            </button>
+          )}
+          {currentIndex < posts.length - 4 && (
+            <button className="carousel-arrow next" onClick={goToNextSlide}>
+              &gt;
+            </button>
+          )}
         </div>
       </div>
       <Footer />
