@@ -68,6 +68,8 @@
 .carousel-arrow {
   position: absolute;
   top: 50%;
+  background-color: transparent;
+
   transform: translateY(-50%);
   font-size: 2rem;
   color: orange;
@@ -135,7 +137,7 @@
     transform: translateY(-50%);
     font-size: 3rem;
     color: orange;
-    background-color: rgba(60, 113, 205, 0.1);
+    background-color: transparent;
     cursor: pointer;
     z-index: 2; /* Garante que as setas fiquem acima dos itens do carrossel */
     
