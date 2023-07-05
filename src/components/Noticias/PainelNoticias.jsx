@@ -10,7 +10,7 @@ export const PainelNoticias = () => {
         axios.get("https://shark-app-6myi8.ondigitalocean.app/api/noticias?populate=*")
             .then((response) => {
                 const { data } = response.data;
-                const sortedData = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                const sortedData = data.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)).reverse();
                 const filteredData = sortedData.slice(0, 9);
                 setPosts(filteredData);
             })
@@ -18,6 +18,7 @@ export const PainelNoticias = () => {
                 console.log(error);
             });
     }, []);
+
     return (
         <div className="news-container">
             <div>
