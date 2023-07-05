@@ -13,7 +13,8 @@ export const Confrontos = () => {
       .get("https://shark-app-6myi8.ondigitalocean.app/api/calendarios?populate=*")
       .then((response) => {
         const { data } = response.data;
-        const confrontosFuturos = data.filter((confronto) => moment(confronto.attributes.data).isSameOrBefore(moment().add(1, 'day'), 'day'));
+        console.log(data)
+        const confrontosFuturos = data.filter((confronto) => true);
         confrontosFuturos.sort((a, b) => moment(a.attributes.data).diff(moment(b.attributes.data), 'days'));
         setConfrontosOrganizados(confrontosFuturos);
       })
@@ -23,6 +24,7 @@ export const Confrontos = () => {
   }, []);
 
   return (
+  
     <>
       {confrontosOrganizados.slice(0, 6).map((confronto, index) => {
         return (
@@ -41,6 +43,7 @@ export const Confrontos = () => {
               </div>
             </div>
           </div>
+          
         );
       })}
     </>
