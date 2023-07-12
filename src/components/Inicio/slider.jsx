@@ -23,6 +23,13 @@ export const Slider = ({ slides }) => {
       });
   }, []);
 
+  posts.sort((a, b) => {
+    const dateA = new Date(a.attributes.createdAt);
+    const dateB = new Date(b.attributes.createdAt);
+    return dateB - dateA;
+  });
+  console.log(posts)
+
   return (
     <div className="ajuste_container">
       <div>
