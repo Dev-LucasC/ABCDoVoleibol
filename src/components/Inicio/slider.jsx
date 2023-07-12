@@ -28,7 +28,7 @@ export const Slider = ({ slides }) => {
     const dateB = new Date(b.attributes.createdAt);
     return dateB - dateA;
   });
-  console.log(posts)
+ 
 
   return (
     <div className="ajuste_container">
