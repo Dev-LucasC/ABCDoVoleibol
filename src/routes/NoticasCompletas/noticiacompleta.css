@@ -1,23 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200;300;500;700&display=swap');
+
+
 /* Estilo da notícia principal */
 .news-details {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  max-width: 800px;
-  padding: 20px;
+  max-width: 1000px;
+
 }
 
 .news-details h2 {
   font-size: 32px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  margin-top: 30px;
   text-align: center;
 }
 
 .news-details p {
-  font-size: 18px;
+  color: #4a4a4a;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 1.35rem;
   line-height: 1.6;
-  margin-bottom: 1em;
+  letter-spacing: .3px;
+  margin-bottom: 30px;
 }
 
 .news-link-container {
@@ -41,6 +48,10 @@
   color: #fff;
 }
 
+.news-image img{
+  width: 90vw;
+  height: 80vh;
+}
 
 /* Estilo das outras notícias */
 .other-news {
@@ -61,9 +72,14 @@
   flex-direction: column;
   align-items: center;
   border: 1px solid #ccc;
-  padding: 20px;
-  transition: background-color 0.3s ease;
+  border-radius: 2em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+}
+
+.news-item:hover {
+  transform: translateY(-5px); /* Movimenta o card para cima */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Cria sombra */
 }
 
 .news-item:hover {
@@ -71,10 +87,21 @@
 }
 
 .news-item-image img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
+  width: 100%;
+  height: 320px; /* Defina uma altura fixa desejada */
+  object-fit: cover; /* Isso garante que a imagem cubra todo o espaço, preservando a proporção */
+  border-radius: 2em 2em 0 0;
 }
+
+.news-item-details {
+  padding: 20px; /* Adapte o valor conforme necessário */
+}
+
+.news-item-link-container {
+  text-align: center;
+  margin-top: auto;
+}
+
 
 .news-item-details .news-item-title {
   font-size: 18px;
@@ -120,23 +147,27 @@
   .news-details {
     align-items: flex-start;
     text-align: center;
-    padding: 10px;
     align-items: center;
   }
 
   .news-details h2 {
-    font-size: 32px;
-    margin: 1em 0;
+    font-size: 1.5;
+    
 
+  }
+
+  .news-image img{
+    width: 100vw;
+    height: 50vh;
+    border-bottom: 2px solid black;
   }
 
   .news-details p {
-    font-size: 16px;
+    font-size: 1.3rem;
     line-height: 1.5;
  
-
-    line-height: 1.5;
   }
+
 
   /* Estilo das outras notícias */
   .other-news {

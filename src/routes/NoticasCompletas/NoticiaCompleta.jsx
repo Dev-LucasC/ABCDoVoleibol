@@ -4,6 +4,7 @@ import axios from "axios";
 import './noticiacompleta.css'
 import Header from '../../components/Header/index'
 import NavHeader from '../../components/NavHeader/NavHeader';
+import Footer from "../../components/footer/Footer"
 
 const NoticiaCompleta = () => {
   const { id } = useParams();
@@ -53,10 +54,10 @@ const NoticiaCompleta = () => {
       <Header />
       <div className="news-container">
         <div ref={newsRef} className="news-details">
-          <h2>{post?.attributes?.titulo}</h2>
           <div className="news-image">
             <img src={post?.attributes.imagem.data.attributes.url} alt={post?.attributes?.titulo} loading="lazy" />
           </div>
+          <h2>{post?.attributes?.titulo}</h2>
           <p>{post?.attributes?.texto}</p>
           <div className="news-link-container">
             <Link to={`/noticias`} className="news-link">
@@ -83,6 +84,7 @@ const NoticiaCompleta = () => {
           ))}
         </div>
       </div>
+          <Footer />
     </>
   );
 };

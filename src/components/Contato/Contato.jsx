@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import './ContatoForm.css';
 
 const ContatoForm = () => {
+  // Estados para os campos do formulário e para controlar o estado de envio
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [telefone, setTelefone] = useState('');
   const [mensagem, setMensagem] = useState('');
   const [enviado, setEnviado] = useState(false);
 
+  // Função para lidar com o envio do formulário
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = {
@@ -25,6 +27,7 @@ const ContatoForm = () => {
         }
       });
       if (response.ok) {
+        // Limpar os campos e marcar como enviado com sucesso
         setNome('');
         setEmail('');
         setTelefone('');
@@ -38,17 +41,18 @@ const ContatoForm = () => {
     }
   };
 
-
   return (
-    
     <div className='container'>
       <div className='mapa'>
+        {/* Mapa incorporado */}
         <h1>Conheça nosso ginásio</h1>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7109.026949090919!2d-48.603477115704344!3d-27.01393611314801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94d8b65804162f1f%3A0xc66182ad7a6ece7c!2sBarra%20Multieventos%20Hamilton%20Linhares%20Cruz%20(G3)!5e0!3m2!1spt-PT!2sbr!4v1682633567764!5m2!1spt-PT!2sbr" width="600" height="450" style={{ border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="..." width="600" height="450" style={{ border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <form className='contato-form' onSubmit={handleSubmit}>
+        {/* Mensagem de sucesso após o envio */}
         {enviado && <p>Formulário enviado com sucesso!</p>}
         <h1>Entre em contato conosco</h1>
+        {/* Campos do formulário */}
         <div className='form-group'>
           <label htmlFor='nome'>Nome:</label>
           <input type='text' id='nome' value={nome} onChange={(e) => setNome(e.target.value)} required />
@@ -65,10 +69,10 @@ const ContatoForm = () => {
           <label htmlFor='mensagem'>Mensagem:</label>
           <textarea id='mensagem' value={mensagem} onChange={(e) => setMensagem(e.target.value)} required />
         </div>
+        {/* Botão de envio */}
         <button type='submit'>Enviar</button>
       </form>
     </div>
-
   );
 };
 
