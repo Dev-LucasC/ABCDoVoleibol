@@ -13,7 +13,6 @@ export const Confrontos = () => {
       .get("https://shark-app-6myi8.ondigitalocean.app/api/calendarios?populate=*")
       .then((response) => {
         const { data } = response.data;
-        console.log(data)
         const confrontosFuturos = data.filter((confronto) => true);
         confrontosFuturos.sort((a, b) => moment(a.attributes.data).diff(moment(b.attributes.data), 'days'));
         setConfrontosOrganizados(confrontosFuturos);
@@ -24,28 +23,32 @@ export const Confrontos = () => {
   }, []);
 
   return (
-  
-    <>
-      {confrontosOrganizados.slice(0, 6).map((confronto, index) => {
-        return (
-          <div key={index} className='container_calendario'>
-            <div className='container_confronto'>
-              <h2>Categoria: {confronto?.attributes?.categoria}</h2>
-              <div className='confronto'>
-                <img src={confronto?.attributes.time2.data[0].attributes.url} loading="lazy" alt="Time 2" />
-                <h1>X</h1>
-                <img src={confronto?.attributes.time1.data.attributes.url} loading="lazy" alt="Time 1" />
-              </div>
-              <h2>Local: {confronto?.attributes?.local}</h2>
-              <p>Data: {moment(confronto?.attributes?.data).format("DD/MM/YYYY")}</p>
-              <div className='btn-container'>
-                <Link to={`/jogoaovivo`} className='btn'>Ver Jogo</Link>
+    <div className='container_posts'>
+      {confrontosOrganizados.length === 0 ? (
+        <div className='no-games-message'>
+          <p>Não temos nenhum jogo agendado para os próximos dias.</p>
+        </div>
+      ) : (
+        confrontosOrganizados.slice(0, 6).map((confronto, index) => {
+          return (
+            <div key={index} className='container_calendario'>
+              <div className='container_confronto'>
+                <h2>Categoria: {confronto?.attributes?.categoria}</h2>
+                <div className='confronto'>
+                  <img src={confronto?.attributes.time2.data[0].attributes.url} loading="lazy" alt="Time 2" />
+                  <h1>X</h1>
+                  <img src={confronto?.attributes.time1.data.attributes.url} loading="lazy" alt="Time 1" />
+                </div>
+                <h2>Local: {confronto?.attributes?.local}</h2>
+                <p>Data: {moment(confronto?.attributes?.data).format("DD/MM/YYYY")}</p>
+                <div className='btn-container'>
+                  <Link to={`/jogoaovivo`} className='btn'>Ver Jogo</Link>
+                </div>
               </div>
             </div>
-          </div>
-          
-        );
-      })}
-    </>
+          );
+        })
+      )}
+    </div>
   );
 };
