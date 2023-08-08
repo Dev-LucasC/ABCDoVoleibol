@@ -145,32 +145,33 @@
 @media screen and (max-width: 768px) {
   /* Estilo da notícia principal */
   .news-details {
-    align-items: flex-start;
-    text-align: center;
     align-items: center;
+    width: 100%; /* Preenche toda a largura */
   }
 
   .news-details h2 {
-    font-size: 1.5;
-    
-
+    font-size: 1.5rem;
+   
   }
 
-  .news-image img{
+  .news-image img {
     width: 100vw;
     height: 50vh;
     border-bottom: 2px solid black;
   }
 
   .news-details p {
-    font-size: 1.3rem;
-    line-height: 1.5;
- 
+    font-size: 1.4rem;
+    line-height: 1.7;
+    margin-left: 0.4em;
+    white-space: pre-line; /* Mantém quebras de linha */
+    word-wrap: break-word; /* Quebra de palavra */
+    overflow-wrap: break-word; /* Quebra de palavra */
   }
-
 
   /* Estilo das outras notícias */
   .other-news {
     grid-template-columns: 1fr;
   }
 }
+
