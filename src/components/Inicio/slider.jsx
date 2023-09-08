@@ -1,10 +1,13 @@
-import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Autoplay } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y, EffectCube } from 'swiper';
 import 'swiper/swiper-bundle.min.css';
 import './App.css'
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
 import axios from 'axios'
+
+SwiperCore.use([Autoplay]);
 
 export const Slider = ({ slides }) => {
   const [posts, setPosts] = useState([]);
@@ -14,19 +17,18 @@ export const Slider = ({ slides }) => {
     axios.get("https://shark-app-6myi8.ondigitalocean.app/api/noticias?populate=*")
       .then((response) => {
         const { data } = response.data;
-        setPosts(data);
+        // Ordenar as notícias pela data de criação e pegar as últimas 3
+        data.sort((a, b) => {
+          const dateA = new Date(a.attributes.createdAt);
+          const dateB = new Date(b.attributes.createdAt);
+          return dateB - dateA;
+        });
+        setPosts(data.slice(0, 3)); // Alterado aqui para pegar apenas as últimas 3 notícias
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
-
-  // Ordenar as notícias pela data de criação
-  posts.sort((a, b) => {
-    const dateA = new Date(a.attributes.createdAt);
-    const dateB = new Date(b.attributes.createdAt);
-    return dateB - dateA;
-  });
 
   return (
     <div className="ajuste_container">
@@ -41,6 +43,7 @@ export const Slider = ({ slides }) => {
           spaceBetween={20}
           slidesPerView={1}
           navigation
+          autoplay={{ delay: 5000 }} // Adicionado aqui para rolar automaticamente a cada 5 segundos
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
           className="swiper-centered"
