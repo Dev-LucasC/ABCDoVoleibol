@@ -1,70 +1,69 @@
-/* Estilos para o texto quando não houver jogos agendados */
-.no-games-message {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50vh; /* Altura da área de visualização, ajustável conforme necessário */
-  font-size: 18px;
-  text-align: center;
-  background-color: #f5f5f5;
-  border-radius: 10px; /* Arredondar bordas */
-  padding: 20px;
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1); /* Adicionar sombra */
-  margin-bottom: 2em;
-}
-
-/* Resto dos estilos */
-.container_posts {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.container_calendario {
-  max-width: 600px;
-  width: 90%;
-  margin: 2em auto; /* Adiciona 'auto' para centralizar horizontalmente */
-  padding: 20px;
-  border: 1px solid #ccc;
-  text-align: center;
-  border-radius: 2em;
-}
-
-.confronto {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.confronto img {
-  width: 40%;
-}
-
-.btn-container {
-  margin-top: 1em;
-}
-
-.container__calendario {
-  margin-top: 5rem;
-  width: 100vw;
-  padding: 0 10vw;
-}
-
-.container_confronto {
-  padding: 0em;
-}
-
-@media (max-width: 600px) {
-  .container_calendario {
-    width: 90%;
+.calendario-container_posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
-  .container_calendario h2 {
+  .centralizador-botao {
+    display: flex;
+    margin: 1rem;
+    justify-content: center; /* Alinha os itens horizontalmente ao centro */
+    align-items: center;
+  }
+  
+  .calendario-button {
+   
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 12px 25px;
     font-size: 16px;
+    --tw-text-opacity: 1;
+    color: rgba(107,114,128,var(--tw-text-opacity));
+    --tw-border-opacity: 1;
+    border-color: rgba(107,114,128,var(--tw-border-opacity));
+    cursor: pointer;
+    border-radius: 2rem;
+  }
+  
+  .calendario-container_calendario {
+    width: 80%;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+  }
+  
+
+  .calendario-container_confronto h2 {
+    font-size: 24px;
   }
 
-  .confronto img {
-    width: 20%;
+  .calendario-container_confronto h2,
+  .calendario-container_confronto p {
+    text-align: center;
   }
-}
+  
+  .calendario-confronto {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 100%; /* Adicione esta linha */
+  }
+  
+  .calendario-confronto img {
+    width: 90px;
+    max-width: 100%; /* Adicione esta linha */
+  }
+  
+ 
+  
+  /* Adicione este bloco de código */
+  .calendario-confronto h2 {
+    flex-basis: 30%; /* ajuste o valor conforme necessário */
+  }
+  
+  .calendario-confronto h3 {
+    flex-basis: 28%;
+  }
+ 

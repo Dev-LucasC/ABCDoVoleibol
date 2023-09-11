@@ -1,0 +1,70 @@
+/* Estilos para o texto quando não houver jogos agendados */
+.no-games-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; /* Altura da área de visualização, ajustável conforme necessário */
+  font-size: 18px;
+  text-align: center;
+  background-color: #f5f5f5;
+  border-radius: 10px; /* Arredondar bordas */
+  padding: 20px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1); /* Adicionar sombra */
+  margin-bottom: 2em;
+}
+
+/* Resto dos estilos */
+.container_posts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_calendario {
+  max-width: 600px;
+  width: 90%;
+  margin: 2em auto; /* Adiciona 'auto' para centralizar horizontalmente */
+  padding: 20px;
+  border: 1px solid #ccc;
+  text-align: center;
+  border-radius: 2em;
+}
+
+.confronto {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.confronto img {
+  width: 40%;
+}
+
+.btn-container {
+  margin-top: 1em;
+}
+
+.container__calendario {
+  margin-top: 5rem;
+  width: 100vw;
+  padding: 0 10vw;
+}
+
+.container_confronto {
+  padding: 0em;
+}
+
+@media (max-width: 600px) {
+  .container_calendario {
+    width: 90%;
+  }
+
+  .container_calendario h2 {
+    font-size: 16px;
+  }
+
+  .confronto img {
+    width: 20%;
+  }
+}

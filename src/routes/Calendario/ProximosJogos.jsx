@@ -3,9 +3,9 @@ import axios from 'axios';
 import moment from 'moment';
 import 'moment/locale/pt-br';
 import { Link } from 'react-router-dom';
-import './calendario.css';
+import './proximosjogos.css';
 
-export const Confrontos = () => {
+export const ProximosJogos = () => {
   const [confrontosOrganizados, setConfrontosOrganizados] = useState([]);
 
   useEffect(() => {

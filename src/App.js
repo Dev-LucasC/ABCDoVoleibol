@@ -5,7 +5,7 @@ import { Slider } from "./components/Inicio/slider";
 
 import Footer from "./components/footer/Footer";
 
-import { Confrontos } from "./routes/Calendario/Confrontos";
+import { ProximosJogos } from "./routes/Calendario/ProximosJogos";
 import { Outlet } from "react-router-dom";
 import ContatoForm from "./components/Contato/Contato";
 
@@ -20,7 +20,7 @@ function App() {
                     <h1>Proximos Jogos</h1>
                     <hr size="6" width="100%" align="left" color="black"></hr>
                 </div>
-       <Confrontos />
+       <ProximosJogos />
       </div>
       <Outlet />
       <div className="ajuste_container_app"> 
