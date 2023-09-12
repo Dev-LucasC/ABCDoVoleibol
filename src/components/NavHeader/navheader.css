@@ -64,9 +64,40 @@ nav ul li a:hover {
   }
 }
 
-@media (max-width: 900px) {
+.btn-associado {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #5c6bc0;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-associado:hover {
+  background-color: #4051b5;
+}
+
+@media (max-width: 768px) {
+  .btn-associado {
+      width: 30%;
+      text-align: center;
+      padding: 10px 20px; /* Reduzir o padding pode diminuir o tamanho do botão */
+  }
   header img {
     width: 10rem;
+  }
+
+  .header-sociais {
+    display: flex;
+    gap: 0.7rem;
+  }
+}
+
+
+@media (min-width: 769px) and (max-width: 900px) {
+  header img {
+    width: 15rem;
   }
 
   .header-sociais {
@@ -77,6 +108,13 @@ nav ul li a:hover {
   nav {
     display: none;
   }
+  
+  .btn-associado {
+    width: 30%;
+    text-align: center;
+    padding: 10px 20px; /* Reduzir o padding pode diminuir o tamanho do botão */
+    font-size: 24px;
+}
 }
 
 

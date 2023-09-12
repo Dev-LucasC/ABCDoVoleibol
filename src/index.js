@@ -13,6 +13,8 @@ import NoticiaCompleta from "./routes/NoticasCompletas/NoticiaCompleta";
 import  Equipes  from "./routes/Equipes/Equipes"
 import Associacao from "./routes/Associacao/Associacao"
 import Jogo from "./routes/Jogo ao Vivo/Jogo"
+import Associados from "./routes/Associados/Associado"
+
 
 const router = createBrowserRouter([
   {
@@ -48,6 +50,10 @@ const router = createBrowserRouter([
   {
     path: "/noticias/:id",
     element: <NoticiaCompleta />
+  },
+  {
+    path: "/associados",
+    element: <Associados />
   }
 ])
 
