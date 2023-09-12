@@ -8,7 +8,7 @@ import Teste from '../../components/NavHeader/NavHeader';
 function ContactForm() {
   const [state, handleSubmit] = useForm("xaygbyln");
   if (state.succeeded) {
-    return <p>Obrigado por se juntar!</p>;
+    alert('Obrigado por se juntar!');
   }
   return (
     <>
@@ -114,7 +114,7 @@ function ContactForm() {
             errors={state.errors}
             />
 
-          <button type="submit" disabled={state.submitting}>
+          <button type="submit" disabled={state.submitting} className='button-form'>
             Enviar
           </button>
         </form>
