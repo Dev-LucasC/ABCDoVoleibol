@@ -106,41 +106,101 @@
     background-position: right; 
   }
 
+/* Para tablets */
+@media (max-width: 820px) {
+  .calendario-container_calendario {
+    width: 100%;
+    height: auto;
+  }
+
+  .calendario-confronto {
+    flex-direction: column;
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    
+  }
+
+  .calendario-confronto h2,
+  .calendario-confronto h3 {
+    font-size: 18px;
+   line-height: 1.5rem;
+    text-align: center; /* Centraliza o texto */
+  }
+
+  .calendario-confronto img {
+    width: 100px;
+    margin-bottom: 10px; /* Adiciona espaço abaixo da imagem */
+  }
+
+  .calendario-placar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+ /* Estilo específico para o botão 'ver jogo' */
+ .calendario_btn .calendario {
+   display: inline-block;
+   padding: 10px 60px 10px 20px; /* Adiciona espaço à direita do ícone */
+   border-radius: 5px;
+   color: #fff; /* Altere para a cor desejada */
+   text-decoration: none;
+   text-align: center;
+
+   /* Adicione um ícone do YouTube ao lado do texto do botão */
+   background-image: url('./icons8-youtube.svg');
+   background-repeat: no-repeat;
+   background-position: right; 
+ }
+}
  
 /* Para tablets */
 @media (max-width: 768px) {
-    .calendario-container_calendario {
-      width: 90%;
-      height: auto;
-    }
-  
-    .calendario-confronto h2,
-    .calendario-confronto h3 {
-      font-size: 18px;
-    }
-  
-    .calendario-confronto img {
-      width: 70px;
-    }
-  
-    .calendario-placar {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    /* Estilo específico para o botão 'ver jogo' */
-    .calendario_btn .calendario {
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 5px;
-      color: #fff; /* Altere para a cor desejada */
-      text-decoration: none;
-      text-align: center;
-    }
+  .calendario-container_calendario {
+    width: 100%;
+    height: auto;
   }
-  
+
+  .calendario-confronto {
+    flex-direction: column;
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    
+  }
+
+  .calendario-confronto h2,
+  .calendario-confronto h3 {
+    font-size: 18px;
+   line-height: 1.5rem;
+    text-align: center; /* Centraliza o texto */
+  }
+
+  .calendario-confronto img {
+    width: 100px;
+    margin-bottom: 10px; /* Adiciona espaço abaixo da imagem */
+  }
+
+  .calendario-placar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+ /* Estilo específico para o botão 'ver jogo' */
+ .calendario_btn .calendario {
+   display: inline-block;
+   padding: 10px 60px 10px 20px; /* Adiciona espaço à direita do ícone */
+   border-radius: 5px;
+   color: #fff; /* Altere para a cor desejada */
+   text-decoration: none;
+   text-align: center;
+
+   /* Adicione um ícone do YouTube ao lado do texto do botão */
+   background-image: url('./icons8-youtube.svg');
+   background-repeat: no-repeat;
+   background-position: right; 
+ }
+}
   /* Para dispositivos móveis */
   @media (max-width: 480px) {
       .calendario-container_calendario {
