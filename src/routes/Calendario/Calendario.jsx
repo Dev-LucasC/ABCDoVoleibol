@@ -11,7 +11,8 @@ import './calendario.css'
 export const Calendario = () => {
   const [confrontosOrganizados, setConfrontosOrganizados] = useState([]);
   const [filtro, setFiltro] = useState('todos');
-  const [paginaAtual, setPaginaAtual] = useState(0); // Adicione esta linha
+  const [paginaAtual, setPaginaAtual] = useState(0);
+  const [update, setUpdate] = useState(false); // Adicione este estado
 
   useEffect(() => {
     axios
@@ -21,11 +22,12 @@ export const Calendario = () => {
         const confrontosFuturos = data.filter((confronto) => true);
         confrontosFuturos.sort((a, b) => moment(a.attributes.data).diff(moment(b.attributes.data), 'days'));
         setConfrontosOrganizados(confrontosFuturos);
+        setUpdate(false); // Reset o estado de update após a atualização dos dados
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [paginaAtual, update]); // Adicione update como uma dependência
 
   const filtrarConfrontos = (filtro) => {
     if (filtro === 'todos') {
@@ -34,9 +36,14 @@ export const Calendario = () => {
     return confrontosOrganizados.filter(confronto => confronto.attributes.categoria.includes(filtro));
   }
 
-  // Adicione esta função
   const mudarPagina = (incremento) => {
-    setPaginaAtual(paginaAtual + incremento);
+    const novaPagina = paginaAtual + incremento;
+    const numeroTotalDePaginas = Math.ceil(filtrarConfrontos(filtro).length / 10);
+
+    if (novaPagina >= 0 && novaPagina < numeroTotalDePaginas) {
+      setPaginaAtual(novaPagina);
+      setUpdate(true); // Atualize o estado de update quando um botão de paginação é clicado
+    }
   }
 
   return (
@@ -54,7 +61,7 @@ export const Calendario = () => {
             <p>Não temos nenhum jogo agendado para os próximos dias.</p>
           </div>
         ) : (
-          filtrarConfrontos(filtro).slice(paginaAtual * 10, paginaAtual * 10 + 10).map((confronto, index) => { // Modifique esta linha
+          filtrarConfrontos(filtro).slice(paginaAtual * 10, paginaAtual * 10 + 10).map((confronto, index) => {
             return (
               <div key={index} className='calendario-container_calendario'>
                 <div className='calendario-container_confronto'>
@@ -62,14 +69,13 @@ export const Calendario = () => {
                     <h2>Categoria: {confronto?.attributes?.categoria}</h2>
                     <h3>Local: {confronto?.attributes?.local}</h3>
                     <p>Data: {moment(confronto?.attributes?.data).format("DD/MM/YYYY")}</p>
-                    {/* Adicione este div */}
 
                     <div className='calendario-container'>
                       <img src={confronto?.attributes.time2.data[0].attributes.url} loading="lazy" alt="Time 2" />
                       <div className='calendario-placar'>
-                        <h2>{confronto?.attributes?.placar}</h2> {/* Adicione esta linha */}
+                        <h2>{confronto?.attributes?.placar}</h2>
                         <h2>X</h2>
-                        <h2>{confronto?.attributes?.placar}</h2> {/* Adicione esta linha */}
+                        <h2>{confronto?.attributes?.placar}</h2>
                       </div>
                       <img src={confronto?.attributes.time1.data.attributes.url} loading="lazy" alt="Time 1" />
                     </div>
@@ -84,8 +90,8 @@ export const Calendario = () => {
         )}
         {/* Adicione estes botões */}
         <div className='btn-page'>
-        <button onClick={() => mudarPagina(-1)} className='btn-after'>Anterior</button>
-        <button onClick={() => mudarPagina(1)} className='btn-next'>Próximo</button>
+          <button onClick={() => mudarPagina(-1)} className='btn-after'>Anterior</button>
+          <button onClick={() => mudarPagina(1)} className='btn-next'>Próximo</button>
         </div>
       </div>
       <Footer />
