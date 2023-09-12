@@ -11,6 +11,7 @@ import './calendario.css'
 export const Calendario = () => {
   const [confrontosOrganizados, setConfrontosOrganizados] = useState([]);
   const [filtro, setFiltro] = useState('todos');
+  const [paginaAtual, setPaginaAtual] = useState(0); // Adicione esta linha
 
   useEffect(() => {
     axios
@@ -33,6 +34,11 @@ export const Calendario = () => {
     return confrontosOrganizados.filter(confronto => confronto.attributes.categoria.includes(filtro));
   }
 
+  // Adicione esta função
+  const mudarPagina = (incremento) => {
+    setPaginaAtual(paginaAtual + incremento);
+  }
+
   return (
     <>
       <NavHeader />
@@ -48,7 +54,7 @@ export const Calendario = () => {
             <p>Não temos nenhum jogo agendado para os próximos dias.</p>
           </div>
         ) : (
-          filtrarConfrontos(filtro).slice(0, 6).map((confronto, index) => {
+          filtrarConfrontos(filtro).slice(paginaAtual * 10, paginaAtual * 10 + 10).map((confronto, index) => { // Modifique esta linha
             return (
               <div key={index} className='calendario-container_calendario'>
                 <div className='calendario-container_confronto'>
@@ -56,13 +62,19 @@ export const Calendario = () => {
                     <h2>Categoria: {confronto?.attributes?.categoria}</h2>
                     <h3>Local: {confronto?.attributes?.local}</h3>
                     <p>Data: {moment(confronto?.attributes?.data).format("DD/MM/YYYY")}</p>
-                    <h1>{confronto?.attributes?.placar}</h1> {/* Adicione esta linha */}
-                    <img src={confronto?.attributes.time2.data[0].attributes.url} loading="lazy" alt="Time 2" />
-                    <h1>X</h1>
-                    <img src={confronto?.attributes.time1.data.attributes.url} loading="lazy" alt="Time 1" />
-                    <h1>{confronto?.attributes?.placar1}</h1> {/* Adicione esta linha */}
-                    <div className='calendario-btn-container'>
-                      <Link to={`/jogoaovivo`} className='btn'>Ver Jogo</Link>
+                    {/* Adicione este div */}
+
+                    <div className='calendario-container'>
+                      <img src={confronto?.attributes.time2.data[0].attributes.url} loading="lazy" alt="Time 2" />
+                      <div className='calendario-placar'>
+                        <h2>{confronto?.attributes?.placar}</h2> {/* Adicione esta linha */}
+                        <h2>X</h2>
+                        <h2>{confronto?.attributes?.placar}</h2> {/* Adicione esta linha */}
+                      </div>
+                      <img src={confronto?.attributes.time1.data.attributes.url} loading="lazy" alt="Time 1" />
+                    </div>
+                    <div className='calendario_btn'>
+                      <Link to={`/jogoaovivo`} className='calendario'>Ver Jogo</Link>
                     </div>
                   </div>
                 </div>
@@ -70,6 +82,9 @@ export const Calendario = () => {
             );
           })
         )}
+        {/* Adicione estes botões */}
+        <button onClick={() => mudarPagina(-1)}>Anterior</button>
+        <button onClick={() => mudarPagina(1)}>Próximo</button>
       </div>
       <Footer />
     </>

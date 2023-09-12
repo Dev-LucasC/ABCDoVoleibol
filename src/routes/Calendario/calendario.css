@@ -12,6 +12,30 @@
     align-items: center;
   }
   
+  .calendario-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  
+  }
+
+  .calendario-placar {
+    display: flex;
+    padding: 0rem 1rem;
+    background-color: orange; /* Adicione esta linha */
+    width: 100%; /* Adicione esta linha */
+    margin: 0 1rem;
+
+  }
+  
+  .calendario-placar h2 {
+    padding: 0.9rem 0.2rem;
+    color: white; /* Altere esta linha */
+    font-size: 40px !important; 
+  }
+
+
   .calendario-button {
    
     justify-content: center;
@@ -46,13 +70,13 @@
   .calendario-confronto {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     max-width: 100%; /* Adicione esta linha */
   }
   
   .calendario-confronto img {
-    width: 90px;
+    width: 70px;
     max-width: 100%; /* Adicione esta linha */
   }
   
@@ -60,10 +84,109 @@
   
   /* Adicione este bloco de código */
   .calendario-confronto h2 {
-    flex-basis: 30%; /* ajuste o valor conforme necessário */
+    flex-basis: 25%; /* ajuste o valor conforme necessário */
   }
   
   .calendario-confronto h3 {
-    flex-basis: 28%;
+    flex-basis: 32%;
   }
+
+  .calendario_btn .calendario {
+    display: inline-block;
+    padding: 10px 50px 10px 20px; /* Adiciona espaço à direita do ícone */
+    border-radius: 5px;
+    background-color: orange; /* Altere para a cor desejada */
+    color: #fff; /* Altere para a cor desejada */
+    text-decoration: none;
+    text-align: center;
+
+    /* Adicione um ícone do YouTube ao lado do texto do botão */
+    background-image: url('./icons8-youtube.svg');
+    background-repeat: no-repeat;
+    background-position: right; 
+  }
+
  
+/* Para tablets */
+@media (max-width: 768px) {
+    .calendario-container_calendario {
+      width: 90%;
+      height: auto;
+    }
+  
+    .calendario-confronto h2,
+    .calendario-confronto h3 {
+      font-size: 18px;
+    }
+  
+    .calendario-confronto img {
+      width: 70px;
+    }
+  
+    .calendario-placar {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    /* Estilo específico para o botão 'ver jogo' */
+    .calendario_btn .calendario {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: orange; /* Altere para a cor desejada */
+      color: #fff; /* Altere para a cor desejada */
+      text-decoration: none;
+      text-align: center;
+    }
+  }
+  
+  /* Para dispositivos móveis */
+  @media (max-width: 480px) {
+      .calendario-container_calendario {
+        width: 100%;
+        height: auto;
+      }
+    
+      .calendario-confronto {
+        flex-direction: column;
+        align-items: center; /* Alinha os itens verticalmente ao centro */
+        
+      }
+    
+      .calendario-confronto h2,
+      .calendario-confronto h3 {
+        font-size: 18px;
+       line-height: 1.5rem;
+        text-align: center; /* Centraliza o texto */
+      }
+    
+      .calendario-confronto img {
+        width: 70px;
+        margin-bottom: 10px; /* Adiciona espaço abaixo da imagem */
+      }
+    
+      .calendario-placar {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+  
+     /* Estilo específico para o botão 'ver jogo' */
+     .calendario_btn .calendario {
+       display: inline-block;
+       padding: 10px 60px 10px 20px; /* Adiciona espaço à direita do ícone */
+       border-radius: 5px;
+       background-color: orange; /* Altere para a cor desejada */
+       color: #fff; /* Altere para a cor desejada */
+       text-decoration: none;
+       text-align: center;
+  
+       /* Adicione um ícone do YouTube ao lado do texto do botão */
+       background-image: url('./icons8-youtube.svg');
+       background-repeat: no-repeat;
+       background-position: right; 
+     }
+  }
