@@ -83,8 +83,10 @@ export const Calendario = () => {
           })
         )}
         {/* Adicione estes botões */}
-        <button onClick={() => mudarPagina(-1)}>Anterior</button>
-        <button onClick={() => mudarPagina(1)}>Próximo</button>
+        <div className='btn-page'>
+        <button onClick={() => mudarPagina(-1)} className='btn-after'>Anterior</button>
+        <button onClick={() => mudarPagina(1)} className='btn-next'>Próximo</button>
+        </div>
       </div>
       <Footer />
     </>
