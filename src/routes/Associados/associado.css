@@ -37,6 +37,7 @@
     border: none;
     background-color: #5c6bc0;
     color: #fff;
+    margin-bottom: 2rem;
   }
 
   .button-vantagens {
@@ -47,7 +48,7 @@
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease; /* adiciona uma transição suave ao mudar a cor de fundo */
-
+    margin-bottom: 2rem;
   }
   
   .button-vantagens:hover {
@@ -62,6 +63,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+
   }
 
   .form-associado h2 {
