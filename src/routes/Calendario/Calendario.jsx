@@ -73,7 +73,7 @@ export const Calendario = () => {
                     <div className='calendario-container'>
                       <img src={confronto?.attributes.time2.data[0].attributes.url} loading="lazy" alt="Time 2" />
                       <div className='calendario-placar'>
-                        <h2>{confronto?.attributes?.placar}</h2>
+                        <h2>{confronto?.attributes?.placar2}</h2>
                         <h2>X</h2>
                         <h2>{confronto?.attributes?.placar}</h2>
                       </div>
