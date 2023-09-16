@@ -38,6 +38,22 @@
     background-color: #5c6bc0;
     color: #fff;
   }
+
+  .button-vantagens {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: orange;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* adiciona uma transição suave ao mudar a cor de fundo */
+
+  }
+  
+  .button-vantagens:hover {
+    background-color: rgb(255, 145, 11); /* cor de fundo quando o mouse passa por cima */
+  }
+  
   
 
   .form-associado {
@@ -45,6 +61,7 @@
    flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
   }
 
   .form-associado h2 {
@@ -57,6 +74,39 @@
 
 .form-associado p {
     margin: 1rem 0rem;
+}
+.parceiro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.cards {
+  width: calc(33.33% - 20px); /* largura para 3 cards por linha, considerando uma margem de 10px */
+  margin: 10px; /* margem ao redor dos cards */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc; /* borda acinzentada */ 
+  border-radius: 1rem;
+ 
+
+}
+
+.cards h3 {
+
+  font-size: 2rem;
+
+}
+
+.cards img {
+  
+  width: 100%; /* faz a imagem ocupar 80% da largura do card */
+  border-radius: 1rem;
+  margin: auto; /* centraliza a imagem */
+  object-fit: cover; /* faz com que a imagem cubra toda a área do elemento pai, mantendo sua proporção */
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -98,5 +148,18 @@
     button {
       height: 40px;
       font-size: 16px;
+    }
+    .parceiro {
+      display: flex;
+      align-items: center;
+      justify-content: center
+      ;
+    }
+    .cards {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 70%; /* faz os cards ocuparem toda a largura em telas pequenas */
     }
   }

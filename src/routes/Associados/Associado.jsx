@@ -4,6 +4,7 @@ import "./associado.css";
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/Header'
 import Teste from '../../components/NavHeader/NavHeader';
+import parceiro1 from './imgs/2afisio.jpg'
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xaygbyln");
@@ -12,14 +13,14 @@ function ContactForm() {
   }
   return (
     <>
-    <Teste />
+      <Teste />
       <Header />
-      
+
       <main className='form-associado'>
-        
+
         <h2>Seja um associado</h2>
         <p>A mensalidade para se tornar um associado é de R$30. Ao se tornar um associado, você estará apoiando nosso clube de voleibol e ajudando a promover o esporte.</p>
- 
+        <a href="#parceiros" className='button-vantagens'>Veja nossas Vantagens</a>
         <form onSubmit={handleSubmit}>
           <label htmlFor="nome">
             Nome
@@ -28,12 +29,12 @@ function ContactForm() {
             id="nome"
             type="text"
             name="nome"
-            />
+          />
           <ValidationError
             prefix="Nome"
             field="nome"
             errors={state.errors}
-            />
+          />
           <label htmlFor="telefone">
             Telefone / WhatsApp
           </label>
@@ -41,12 +42,12 @@ function ContactForm() {
             id="telefone"
             type="tel"
             name="telefone"
-            />
+          />
           <ValidationError
             prefix="Telefone"
             field="telefone"
             errors={state.errors}
-            />
+          />
           <label htmlFor="email">
             Endereço de Email
           </label>
@@ -54,12 +55,12 @@ function ContactForm() {
             id="email"
             type="email"
             name="email"
-            />
+          />
           <ValidationError
             prefix="Email"
             field="email"
             errors={state.errors}
-            />
+          />
           <label htmlFor="cpf">
             CPF
           </label>
@@ -68,37 +69,37 @@ function ContactForm() {
             type="text"
             name="cpf"
           />
-          <ValidationError 
-            prefix="CPF" 
+          <ValidationError
+            prefix="CPF"
             field="cpf"
             errors={state.errors}
           />
           <label htmlFor="dataNascimento">
-           Data de Nascimento
-         </label>
-         <input
-           id="dataNascimento"
-           type="date" 
-           name="dataNascimento"
-         />
-         <ValidationError 
-           prefix="Data de Nascimento" 
-           field="dataNascimento"
-           errors={state.errors}
-         />
-         <label htmlFor="responsavel">
-           Responsável por qual atleta(s):
-         </label>
-         <input
-           id="responsavel"
-           type="text" 
-           name="responsavel"
-         />
-         <ValidationError 
-           prefix="Responsável por qual atleta(s)" 
-           field="responsavel"
-           errors={state.errors}
-         />
+            Data de Nascimento
+          </label>
+          <input
+            id="dataNascimento"
+            type="date"
+            name="dataNascimento"
+          />
+          <ValidationError
+            prefix="Data de Nascimento"
+            field="dataNascimento"
+            errors={state.errors}
+          />
+          <label htmlFor="responsavel">
+            Responsável por qual atleta(s):
+          </label>
+          <input
+            id="responsavel"
+            type="text"
+            name="responsavel"
+          />
+          <ValidationError
+            prefix="Responsável por qual atleta(s)"
+            field="responsavel"
+            errors={state.errors}
+          />
           <label htmlFor="tempo">
             Tempo de Associação
           </label>
@@ -112,16 +113,27 @@ function ContactForm() {
             prefix="Tempo"
             field="tempo"
             errors={state.errors}
-            />
+          />
 
           <button type="submit" disabled={state.submitting} className='button-form'>
             Enviar
           </button>
         </form>
+        <h1>
+          VANTAGENS
+        </h1>
+        <div id="parceiros" className="parceiro">
+          <div className='cards'>
+          <img src={parceiro1} alt="" />
+          <h3>2A Fisioterapia</h3>
+          <p>10% De desconto em consultas</p>
+          </div>
+      
+        </div>
       </main>
       <Footer />
     </>
-      
+
   );
 }
 
