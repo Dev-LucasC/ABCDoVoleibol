@@ -4,7 +4,8 @@ import "./associado.css";
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/Header'
 import Teste from '../../components/NavHeader/NavHeader';
-import parceiro1 from './imgs/2afisio.jpg'
+import parceiro1 from './imgs/2afisiobranca.jpg'
+import parceiro2 from "./imgs/klinebranca.jpg"
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xaygbyln");
@@ -127,6 +128,13 @@ function ContactForm() {
           <img src={parceiro1} alt="" />
           <h3>2A Fisioterapia</h3>
           <p>10% De desconto em consultas</p>
+          </div>
+          <div className='cards'>
+          <img src={parceiro2} alt="" />
+          <h3>KLINE Odonto</h3>
+          <p>18% De desconto em tratamento odontologico
+            e procedimentos estéticos
+          </p>
           </div>
       
         </div>
