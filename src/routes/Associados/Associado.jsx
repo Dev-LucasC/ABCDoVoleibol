@@ -120,7 +120,7 @@ function ContactForm() {
             Enviar
           </button>
         </form>
-        <h1>
+        <h1 className='vantagens-titulo'>
           VANTAGENS
         </h1>
         <div id="parceiros" className="parceiro">

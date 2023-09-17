@@ -78,6 +78,10 @@ nav ul li a:hover {
   background-color: #4051b5;
 }
 
+.vantagens-titulo {
+  margin-bottom: 2rem;
+}
+
 @media (max-width: 768px) {
   .btn-associado {
       width: 30%;
