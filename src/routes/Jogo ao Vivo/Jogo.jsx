@@ -25,7 +25,7 @@ const Jogo = () => {
   }, []);
 
   useEffect(() => {
-    const endIndex = currentIndex + 3;
+    const endIndex = currentIndex + 8;
     const videos = posts.slice(currentIndex, endIndex);
     setVisibleVideos(videos);
   }, [currentIndex, posts]);
