@@ -11,7 +11,9 @@ const PrestacaoPdf = () => {
         axios.get("https://shark-app-6myi8.ondigitalocean.app/api/prestacaos?populate=*")
             .then((response) => {
                 const { data } = response.data;
-                setPosts(data); // Atualiza o estado com os dados da API
+                // Organiza os posts por data em ordem decrescente
+                const sortedData = data.sort((a, b) => new Date(b.attributes.data) - new Date(a.attributes.data));
+                setPosts(sortedData); // Atualiza o estado com os dados da API
             })
             .catch((error) => {
                 console.log(error);
