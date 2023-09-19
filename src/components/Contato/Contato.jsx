@@ -51,6 +51,7 @@ const ContatoForm = () => {
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
+          className='iframe-maps'
         ></iframe>
       </div>
       <form className='contato-form' onSubmit={handleSubmit}>

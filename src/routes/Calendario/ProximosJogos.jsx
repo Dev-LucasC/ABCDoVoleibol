@@ -13,7 +13,9 @@ export const ProximosJogos = () => {
       .get("https://shark-app-6myi8.ondigitalocean.app/api/calendarios?populate=*")
       .then((response) => {
         const { data } = response.data;
-        const confrontosFuturos = data.filter((confronto) => true);
+        // Filtra os jogos futuros
+        const confrontosFuturos = data.filter((confronto) => moment(confronto.attributes.data).isAfter(moment()));
+        // Organiza os jogos futuros por data
         confrontosFuturos.sort((a, b) => moment(a.attributes.data).diff(moment(b.attributes.data), 'days'));
         setConfrontosOrganizados(confrontosFuturos);
       })
