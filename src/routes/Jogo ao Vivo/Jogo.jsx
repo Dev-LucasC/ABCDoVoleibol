@@ -49,38 +49,43 @@ const Jogo = () => {
       <Teste />
       <Header />
       <div className="live-container">
-        {mainVideo && (
-          <iframe
-            className="responsive-iframe main-video"
-            src={mainVideo?.attributes.link}
-            allowFullScreen
-            title="Live Stream"
-          ></iframe>
-        )}
-        <div className="separator"></div>
-        <h1>Jogos passados</h1>
-        <div className="carousel-container">
-          <div className="finished-container" ref={sliderRef}>
-            {visibleVideos.map((post, index) => (
-              <iframe
-                key={index}
-                className="responsive-iframe finished"
-                src={post?.attributes.link}
-                allowFullScreen
-                title="Live Stream"
-              ></iframe>
-            ))}
+        <div className="main-video-container">
+          {mainVideo && (
+            <iframe
+              className="responsive-iframe main-video"
+              src={mainVideo?.attributes.link}
+              allowFullScreen
+              title="Live Stream"
+            ></iframe>
+          )}
+        </div>
+        <div className="related-videos-container">
+          <h1>Jogos passados</h1>
+          <div className="carousel-container">
+            <div className="finished-container" ref={sliderRef}>
+              {visibleVideos.map((post, index) => (
+                <iframe
+                  key={index}
+                  className="responsive-iframe finished"
+                  src={post?.attributes.link}
+                  allowFullScreen
+                  title="Live Stream"
+                ></iframe>
+              ))}
+            </div>
+            <div className='ajuste-buton'>
+            {currentIndex > 0 && (
+              <button className="carousel-arrow previous" onClick={goToPreviousSlide}>
+                &lt;
+              </button>
+            )}
+            {currentIndex < posts.length - 4 && (
+              <button className="carousel-arrow next" onClick={goToNextSlide}>
+                &gt;
+              </button>
+            )}
+            </div>
           </div>
-          {currentIndex > 0 && (
-            <button className="carousel-arrow previous" onClick={goToPreviousSlide}>
-              &lt;
-            </button>
-          )}
-          {currentIndex < posts.length - 4 && (
-            <button className="carousel-arrow next" onClick={goToNextSlide}>
-              &gt;
-            </button>
-          )}
         </div>
       </div>
       <Footer />
