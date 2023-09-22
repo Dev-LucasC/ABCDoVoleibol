@@ -6,6 +6,7 @@ import Header from '../../components/Header'
 import Teste from '../../components/NavHeader/NavHeader';
 import parceiro1 from './imgs/2afisiobranca.jpg'
 import parceiro2 from "./imgs/klinebranca.jpg"
+import parceiro3 from "./imgs/amandaamorim.jpg"
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xaygbyln");
@@ -136,6 +137,13 @@ function ContactForm() {
             e procedimentos estéticos
           </p>
           </div>
+          <div className='cards'>
+          <img src={parceiro3} alt="" />
+          <h3>Amanda Amorim - Nutri</h3>
+          <p>10% Em consultas
+          </p>
+          </div>
+      
       
         </div>
       </main>
