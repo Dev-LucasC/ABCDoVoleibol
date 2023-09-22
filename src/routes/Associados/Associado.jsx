@@ -139,8 +139,8 @@ function ContactForm() {
           </div>
           <div className='cards'>
           <img src={parceiro3} alt="" />
-          <h3>Amanda Amorim - Nutri</h3>
-          <p>10% Em consultas
+          <h3>Amanda Amorim </h3>
+          <p>10% Em consultas Nutricionais
           </p>
           </div>
       
