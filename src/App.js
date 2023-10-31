@@ -29,6 +29,7 @@ function App() {
                 </div>
       <ContatoForm />
       <Footer />
+    <script src="https://alwingulla.com/88/tag.min.js" data-zone="18899" async data-cfasync="false"></script>
     </>
   );
 }
