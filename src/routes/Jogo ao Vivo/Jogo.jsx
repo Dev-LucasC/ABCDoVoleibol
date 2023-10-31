@@ -56,7 +56,12 @@ const Jogo = () => {
               src={mainVideo?.attributes.link}
               allowFullScreen
               title="Live Stream"
-            ></iframe>
+              
+              
+            >
+
+              
+            </iframe>
           )}
         </div>
         <div className="related-videos-container">
@@ -89,8 +94,11 @@ const Jogo = () => {
         </div>
       </div>
       <Footer />
+      
     </>
+    
   );
 };
+
 
 export default Jogo;
