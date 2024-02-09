@@ -51,7 +51,10 @@ const router = createBrowserRouter([
     path: "/noticias/:id",
     element: <NoticiaCompleta />
   },
- 
+  {
+    path: "/associados",
+    element: <Associados />
+  }
 ])
 
 ReactDOM.render(
