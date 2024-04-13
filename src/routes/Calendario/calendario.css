@@ -22,17 +22,18 @@
 
   .calendario-placar {
     display: flex;
-    padding: 0rem 1rem;
+    padding: 13px 20px 13px 20px;
+    border-radius: 5px;
     background-color: orange; /* Adicione esta linha */
-    width: 100%; /* Adicione esta linha */
-    margin: 0 1rem;
+
+    margin: 0 5px;
 
   }
   
   .calendario-placar h2 {
-    padding: 0.9rem 0.2rem;
+    padding: 2px 2px;
     color: white; /* Altere esta linha */
-    font-size: 40px !important; 
+    font-size: 16px !important; 
   }
 
 
@@ -70,14 +71,13 @@
   .calendario-confronto {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    max-width: 100%; /* Adicione esta linha */
+    justify-content: space-between;
   }
   
   .calendario-confronto img {
-    width: 70px;
-    max-width: 100%; /* Adicione esta linha */
+    width: 60px;
+
   }
   
  
@@ -93,17 +93,18 @@
 
   .calendario_btn .calendario {
     display: inline-block;
-    padding: 10px 40px 10px 30px; /* Adiciona espaço à direita do ícone */
+    padding: 10px 40px 10px 10px; /* Adiciona espaço à direita do ícone */
     border-radius: 5px;
     background-color: red; /* Altere para a cor desejada */
     color: #fff; /* Altere para a cor desejada */
     text-decoration: none;
-    text-align: center;
-    margin: 1rem 0;
+ 
+   
     /* Adicione um ícone do YouTube ao lado do texto do botão */
     background-image: url('./icons8-youtube-30.png');
     background-repeat: no-repeat;
     background-position: right; 
+    margin: 0 5px;
   }
 
 
@@ -150,20 +151,7 @@
     align-items: center;
   }
 
- /* Estilo específico para o botão 'ver jogo' */
- .calendario_btn .calendario {
-   display: inline-block;
-   padding: 10px 60px 10px 20px; /* Adiciona espaço à direita do ícone */
-   border-radius: 5px;
-   color: #fff; /* Altere para a cor desejada */
-   text-decoration: none;
-   text-align: center;
-
-   /* Adicione um ícone do YouTube ao lado do texto do botão */
-   background-image: url('./icons8-youtube.svg');
-   background-repeat: no-repeat;
-   background-position: right; 
- }
+ 
  .btn-next, .btn-after {
   padding: 8px 16px;
   font-size: 14px;

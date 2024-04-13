@@ -22,7 +22,7 @@ export const Calendario = () => {
         const confrontosFuturos = data.filter((confronto) => true);
         confrontosFuturos.sort((a, b) => moment(a.attributes.data).diff(moment(b.attributes.data), 'days'));
         setConfrontosOrganizados(confrontosFuturos);
-        setUpdate(false); // Reset o estado de update após a atualização dos dados
+        setUpdate(false); 
       })
       .catch((error) => {
         console.log(error);
