@@ -12,22 +12,21 @@ export const Calendario = () => {
   const [confrontosOrganizados, setConfrontosOrganizados] = useState([]);
   const [filtro, setFiltro] = useState('todos');
   const [paginaAtual, setPaginaAtual] = useState(0);
-  const [update, setUpdate] = useState(false); // Adicione este estado
+  const [update, setUpdate] = useState(false);
 
   useEffect(() => {
     axios
       .get("https://shark-app-6myi8.ondigitalocean.app/api/calendarios?populate=*")
       .then((response) => {
         const { data } = response.data;
-        const confrontosFuturos = data.filter((confronto) => true);
-        confrontosFuturos.sort((a, b) => moment(a.attributes.data).diff(moment(b.attributes.data), 'days'));
-        setConfrontosOrganizados(confrontosFuturos);
-        setUpdate(false); 
+        const confrontosOrdenados = data.sort((a, b) => moment(a.attributes.data).diff(moment(b.attributes.data), 'days'));
+        setConfrontosOrganizados(confrontosOrdenados);
+        setUpdate(false);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [paginaAtual, update]); // Adicione update como uma dependência
+  }, [paginaAtual, update]);
 
   const filtrarConfrontos = (filtro) => {
     if (filtro === 'todos') {
@@ -42,7 +41,7 @@ export const Calendario = () => {
 
     if (novaPagina >= 0 && novaPagina < numeroTotalDePaginas) {
       setPaginaAtual(novaPagina);
-      setUpdate(true); // Atualize o estado de update quando um botão de paginação é clicado
+      setUpdate(true);
     }
   }
 
@@ -88,7 +87,6 @@ export const Calendario = () => {
             );
           })
         )}
-        {/* Adicione estes botões */}
         <div className='btn-page'>
           <button onClick={() => mudarPagina(-1)} className='btn-after'>Anterior</button>
           <button onClick={() => mudarPagina(1)} className='btn-next'>Próximo</button>

@@ -54,7 +54,7 @@ const ContatoForm = () => {
           className='iframe-maps'
         ></iframe>
       </div>
-      <form className='contato-form' onSubmit={handleSubmit}>
+      <form className='contato-form' id="formulario" onSubmit={handleSubmit}>
         {enviado && <p>Formulário enviado com sucesso!</p>}
         <h1>Entre em contato conosco</h1>
         <div className='form-group'>

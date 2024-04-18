@@ -10,8 +10,8 @@ export const PainelNoticias = () => {
         axios.get("https://shark-app-6myi8.ondigitalocean.app/api/noticias?populate=*")
             .then((response) => {
                 const { data } = response.data;
-                const sortedData = data.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)).reverse();
-                const filteredData = sortedData.slice(0, 9);
+                const sortedData = data.sort((a, b) => b.id - a.id); // Ordena os posts pelo ID em ordem decrescente
+                const filteredData = sortedData.slice(0, 12);
                 setPosts(filteredData);
             })
             .catch((error) => {
