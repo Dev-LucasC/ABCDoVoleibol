@@ -10,7 +10,7 @@ export const ProximosJogos = () => {
 
   useEffect(() => {
     axios
-      .get("https://shark-app-6myi8.ondigitalocean.app/api/calendarios?populate=*")
+      .get("https://shark-app-6myi8.ondigitalocean.app/api/calendarios?populate=*&sort=id:desc")
       .then((response) => {
         const { data } = response.data;
         // Filtra os jogos futuros
