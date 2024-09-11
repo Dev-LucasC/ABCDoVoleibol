@@ -1,17 +1,21 @@
+/* Layout Principal */
 .live-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 5vh auto;
-  width: 100% !important;
-  height: 100vh !important;
+  padding-bottom: 5vh; /* Adicionado espaço no final para evitar sobreposição com o footer */
+  width: 100%;
   max-width: 1500px;
+  min-height: 100vh; /* Garante que o container ocupe toda a altura da tela */
+  box-sizing: border-box; /* Inclui padding e border na largura e altura */
 }
 
 .main-video-container {
   flex-basis: 70%;
   width: 100%;
-   
+  padding-right: 2rem; /* Espaçamento para separar do contêiner de vídeos relacionados */
+  box-sizing: border-box;
 }
 
 .related-videos-container {
@@ -25,45 +29,97 @@
 
 .responsive-iframe {
   width: 100%;
-  height: 70%;
+  height: auto; /* Altura ajustada automaticamente */
+  aspect-ratio: 16/9; /* Mantém a proporção de aspecto */
   border-radius: 1rem;
+  margin-bottom: 1rem;
 }
 
 .ajuste-buton {
   display: flex;
   justify-content: space-evenly;
-   flex-direction: row;
+  flex-direction: row;
+  margin-top: 1rem;
 }
 
 .carousel-arrow {
-  
   font-size: 0.8rem;
-  color: white; /* Cor do texto das setas */
-  background-color: orange; /* Cor de fundo das setas */
-  padding: 0.7rem; /* Espaçamento interno das setas */
+  color: white;
+  background-color: orange;
+  padding: 0.7rem;
   cursor: pointer;
-
-  &:focus {
-    outline: none; /* Remove a borda de foco */
-  }
+  border: none; /* Remove borda padrão */
+  border-radius: 5px; /* Arredonda as bordas */
+  transition: background-color 0.3s; /* Adiciona animação de hover */
 }
 
-/* Adicione estilos adicionais conforme necessário */
+.carousel-arrow:hover {
+  background-color: darkorange; /* Muda a cor ao passar o mouse */
+}
+
+.finished-container {
+  display: flex;
+  flex-direction: column; /* Alinha vídeos relacionados verticalmente */
+  gap: 1rem; /* Espaçamento entre vídeos */
+}
+
+/* Layout para Dispositivos Móveis */
 @media screen and (max-width: 767px) {
   .live-container {
-    padding: 0 20px;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-top: 12rem;
-    width: 100%;
+    margin-top: 2rem; /* Ajusta a margem superior */
+    padding: 0 20px;
   }
 
   .main-video-container,
   .related-videos-container {
     width: 100%;
-    height: 100%; /* Ajuste a altura conforme necessário */
+    padding: 0; /* Remove espaçamento para mobile */
     flex-basis: inherit;
+  }
+
+  .related-videos-container {
+    margin-top: 2rem; /* Adiciona margem para separar do vídeo principal */
+  }
+
+  .responsive-iframe {
+    width: 100%;
+    height: auto; /* Ajusta a altura conforme necessário */
+    margin-bottom: 1rem;
+  }
+
+  .finished-container {
+    flex-direction: row; /* Exibe vídeos relacionados lado a lado */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem; /* Ajuste do espaçamento para dispositivos móveis */
+    overflow: hidden; /* Oculta a barra de rolagem */
+  }
+
+  .carousel-arrow {
+    font-size: 1rem; /* Aumenta o tamanho das setas em dispositivos móveis */
+    padding: 0.8rem; /* Aumenta o espaçamento interno */
+  }
+}
+
+/* Layout para Tablets */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .live-container {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+    padding: 0 30px;
+  }
+
+  .main-video-container {
+    width: 100%;
+    padding: 0;
+  }
+
+  .related-videos-container {
+    width: 100%;
+    margin-top: 2rem;
   }
 
   .responsive-iframe {
@@ -72,34 +128,15 @@
     margin-bottom: 1rem;
   }
 
-  .main-video {
-    width: 100%;
-    height: 300px;
-  }
-
   .finished-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    overflow: hidden; /* Oculta a barra de rolagem */
-  }
-
-  .ajuste-buton {
-    display: flex;
-    justify-content: space-evenly;
-     flex-direction: row;
+    gap: 1rem;
   }
 
   .carousel-arrow {
-    
-    font-size: 0.8rem;
-    color: white; /* Cor do texto das setas */
-    background-color: orange; /* Cor de fundo das setas */
-    padding: 0.7rem; /* Espaçamento interno das setas */
-    cursor: pointer;
-
-    &:focus {
-      outline: none; /* Remove a borda de foco */
-    }
+    font-size: 0.9rem; /* Tamanho ajustado das setas */
+    padding: 0.7rem;
   }
 }

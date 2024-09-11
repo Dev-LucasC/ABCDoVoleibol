@@ -25,7 +25,7 @@ const Jogo = () => {
   }, []);
 
   useEffect(() => {
-    const endIndex = currentIndex + 8;
+    const endIndex = currentIndex + 5;  // Modificado de 8 para 4
     const videos = posts.slice(currentIndex, endIndex);
     setVisibleVideos(videos);
   }, [currentIndex, posts]);
@@ -34,13 +34,13 @@ const Jogo = () => {
 
   const goToPreviousSlide = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+      setCurrentIndex(currentIndex - 5);  // Muda a página anterior de 4 em 4
     }
   };
 
   const goToNextSlide = () => {
-    if (currentIndex < posts.length - 4) {
-      setCurrentIndex(currentIndex + 1);
+    if (currentIndex < posts.length - 4) {  // Modificado para garantir que não exceda o número de vídeos
+      setCurrentIndex(currentIndex + 4);  // Muda a página seguinte de 4 em 4
     }
   };
 
@@ -56,12 +56,7 @@ const Jogo = () => {
               src={mainVideo?.attributes.link}
               allowFullScreen
               title="Live Stream"
-              
-              
-            >
-
-              
-            </iframe>
+            ></iframe>
           )}
         </div>
         <div className="related-videos-container">
@@ -79,26 +74,23 @@ const Jogo = () => {
               ))}
             </div>
             <div className='ajuste-buton'>
-            {currentIndex > 0 && (
-              <button className="carousel-arrow previous" onClick={goToPreviousSlide}>
-                &lt;
-              </button>
-            )}
-            {currentIndex < posts.length - 4 && (
-              <button className="carousel-arrow next" onClick={goToNextSlide}>
-                &gt;
-              </button>
-            )}
+              {currentIndex > 0 && (
+                <button className="carousel-arrow previous" onClick={goToPreviousSlide}>
+                  &lt;
+                </button>
+              )}
+              {currentIndex < posts.length - 4 && (  // Modificado para corresponder ao limite de 4 vídeos
+                <button className="carousel-arrow next" onClick={goToNextSlide}>
+                  &gt;
+                </button>
+              )}
             </div>
           </div>
         </div>
       </div>
       <Footer />
-      
     </>
-    
   );
 };
-
 
 export default Jogo;
