@@ -11,37 +11,42 @@ import './calendario.css'
 export const Calendario = () => {
   const [confrontosOrganizados, setConfrontosOrganizados] = useState([]);
   const [filtro, setFiltro] = useState('todos');
-  const [paginaAtual, setPaginaAtual] = useState(0);
-  const [update, setUpdate] = useState(false);
+  const [paginaAtual, setPaginaAtual] = useState(1); // Inicia a partir da página 1
+  const [totalPaginas, setTotalPaginas] = useState(1); // Total de páginas
+  const [isLoading, setIsLoading] = useState(false); // Estado de carregamento
 
-  useEffect(() => {
+  const ITEMS_POR_PAGINA = 10; // Defina quantos itens por página deseja exibir
+
+  // Função para buscar os confrontos da API
+  const fetchConfrontos = (pagina = 1, filtro = 'todos') => {
+    setIsLoading(true);
+    let filtroCategoria = filtro !== 'todos' ? `&filters[categoria][$contains]=${filtro}` : '';
+
     axios
-      .get("https://shark-app-6myi8.ondigitalocean.app/api/calendarios?populate=*")
+      .get(`https://shark-app-6myi8.ondigitalocean.app/api/calendarios?populate=*&sort=data:desc&pagination[page]=${pagina}&pagination[pageSize]=${ITEMS_POR_PAGINA}${filtroCategoria}`)
       .then((response) => {
-        const { data } = response.data;
-        const confrontosOrdenados = data.sort((a, b) => moment(a.attributes.data).diff(moment(b.attributes.data), 'days'));
-        setConfrontosOrganizados(confrontosOrdenados);
-        setUpdate(false);
+        const { data, meta } = response.data;
+        setConfrontosOrganizados(data);
+        setTotalPaginas(meta.pagination.pageCount); // Define o total de páginas a partir da resposta da API
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setIsLoading(false);
       });
-  }, [paginaAtual, update]);
+  };
 
-  const filtrarConfrontos = (filtro) => {
-    if (filtro === 'todos') {
-      return confrontosOrganizados;
-    }
-    return confrontosOrganizados.filter(confronto => confronto.attributes.categoria.includes(filtro));
-  }
+  // Carregar os confrontos quando o componente for montado ou quando a página/filtro mudar
+  useEffect(() => {
+    fetchConfrontos(paginaAtual, filtro);
+  }, [paginaAtual, filtro]);
 
+  // Função para mudar de página
   const mudarPagina = (incremento) => {
     const novaPagina = paginaAtual + incremento;
-    const numeroTotalDePaginas = Math.ceil(filtrarConfrontos(filtro).length / 10);
 
-    if (novaPagina >= 0 && novaPagina < numeroTotalDePaginas) {
+    if (novaPagina > 0 && novaPagina <= totalPaginas) {
       setPaginaAtual(novaPagina);
-      setUpdate(true);
     }
   }
 
@@ -55,41 +60,47 @@ export const Calendario = () => {
         <button className="calendario-button" onClick={() => setFiltro('todos')}>Todos</button>
       </div>
       <div className='calendario-container_posts'>
-        {filtrarConfrontos(filtro).length === 0 ? (
-          <div className='calendario-no-games-message'>
-            <p>Não temos nenhum jogo agendado para os próximos dias.</p>
+        {isLoading ? (
+          <div className='calendario-loading-message'>
+            <p>Carregando jogos...</p>
           </div>
         ) : (
-          filtrarConfrontos(filtro).slice(paginaAtual * 10, paginaAtual * 10 + 10).map((confronto, index) => {
-            return (
-              <div key={index} className='calendario-container_calendario'>
-                <div className='calendario-container_confronto'>
-                  <div className='calendario-confronto'>
-                    <h2>Categoria: {confronto?.attributes?.categoria}</h2>
-                    <h3>Local: {confronto?.attributes?.local}</h3>
-                    <p>Data: {moment(confronto?.attributes?.data).format("DD/MM/YYYY")}</p>
+          confrontosOrganizados.length === 0 ? (
+            <div className='calendario-no-games-message'>
+              <p>Não temos nenhum jogo agendado para os próximos dias.</p>
+            </div>
+          ) : (
+            confrontosOrganizados.map((confronto, index) => {
+              return (
+                <div key={index} className='calendario-container_calendario'>
+                  <div className='calendario-container_confronto'>
+                    <div className='calendario-confronto'>
+                      <h2>Categoria: {confronto?.attributes?.categoria}</h2>
+                      <h3>Local: {confronto?.attributes?.local}</h3>
+                      <p>Data: {moment(confronto?.attributes?.data).format("DD/MM/YYYY")}</p>
 
-                    <div className='calendario-container'>
-                      <img src={confronto?.attributes.time2.data[0].attributes.url} loading="lazy" alt="Time 2" />
-                      <div className='calendario-placar'>
-                        <h2>{confronto?.attributes?.placar2}</h2>
-                        <h2>X</h2>
-                        <h2>{confronto?.attributes?.placar}</h2>
+                      <div className='calendario-container'>
+                        <img src={confronto?.attributes.time2.data[0].attributes.url} loading="lazy" alt="Time 2" />
+                        <div className='calendario-placar'>
+                          <h2>{confronto?.attributes?.placar2}</h2>
+                          <h2>X</h2>
+                          <h2>{confronto?.attributes?.placar}</h2>
+                        </div>
+                        <img src={confronto?.attributes.time1.data.attributes.url} loading="lazy" alt="Time 1" />
                       </div>
-                      <img src={confronto?.attributes.time1.data.attributes.url} loading="lazy" alt="Time 1" />
-                    </div>
-                    <div className='calendario_btn'>
-                      <Link to={`/jogoaovivo`} className='calendario'>Ver Jogo</Link>
+                      <div className='calendario_btn'>
+                        <Link to={`/jogoaovivo`} className='calendario'>Ver Jogo</Link>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })
+              );
+            })
+          )
         )}
         <div className='btn-page'>
-          <button onClick={() => mudarPagina(-1)} className='btn-after'>Anterior</button>
-          <button onClick={() => mudarPagina(1)} className='btn-next'>Próximo</button>
+          <button onClick={() => mudarPagina(-1)} className='btn-after' disabled={paginaAtual === 1}>Anterior</button>
+          <button onClick={() => mudarPagina(1)} className='btn-next' disabled={paginaAtual === totalPaginas}>Próximo</button>
         </div>
       </div>
       <Footer />
