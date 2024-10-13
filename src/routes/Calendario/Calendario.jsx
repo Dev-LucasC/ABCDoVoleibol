@@ -10,7 +10,8 @@ import './calendario.css'
 
 export const Calendario = () => {
   const [confrontosOrganizados, setConfrontosOrganizados] = useState([]);
-  const [filtro, setFiltro] = useState('todos');
+  const [categoriaSelecionada, setCategoriaSelecionada] = useState(null); // Estado para categoria (ex: SUB 17)
+  const [generoSelecionado, setGeneroSelecionado] = useState(null); // Estado para gênero (ex: MASC ou FEM)
   const [paginaAtual, setPaginaAtual] = useState(1); // Inicia a partir da página 1
   const [totalPaginas, setTotalPaginas] = useState(1); // Total de páginas
   const [isLoading, setIsLoading] = useState(false); // Estado de carregamento
@@ -18,9 +19,11 @@ export const Calendario = () => {
   const ITEMS_POR_PAGINA = 10; // Defina quantos itens por página deseja exibir
 
   // Função para buscar os confrontos da API
-  const fetchConfrontos = (pagina = 1, filtro = 'todos') => {
+  const fetchConfrontos = (pagina = 1, categoria = null) => {
     setIsLoading(true);
-    let filtroCategoria = filtro !== 'todos' ? `&filters[categoria][$contains]=${filtro}` : '';
+    
+    // Filtro apenas por categoria na API
+    let filtroCategoria = categoria ? `&filters[categoria][$contains]=${categoria}` : '';
 
     axios
       .get(`https://shark-app-6myi8.ondigitalocean.app/api/calendarios?populate=*&sort=data:desc&pagination[page]=${pagina}&pagination[pageSize]=${ITEMS_POR_PAGINA}${filtroCategoria}`)
@@ -36,10 +39,19 @@ export const Calendario = () => {
       });
   };
 
-  // Carregar os confrontos quando o componente for montado ou quando a página/filtro mudar
+  // Filtrar confrontos por gênero (aplicação local)
+  const aplicarFiltroGenero = (confrontos, genero) => {
+    if (!genero) {
+      return confrontos; // Se não houver gênero selecionado, retorna todos os confrontos
+    }
+    // Filtra confrontos com base no gênero (MASC ou FEM) presente na string 'categoria'
+    return confrontos.filter((confronto) => confronto?.attributes?.categoria?.toUpperCase().includes(genero.toUpperCase()));
+  };
+
+  // Carregar os confrontos quando o componente for montado ou quando a página/categoria/gênero mudar
   useEffect(() => {
-    fetchConfrontos(paginaAtual, filtro);
-  }, [paginaAtual, filtro]);
+    fetchConfrontos(paginaAtual, categoriaSelecionada);
+  }, [paginaAtual, categoriaSelecionada]);
 
   // Função para mudar de página
   const mudarPagina = (incremento) => {
@@ -50,27 +62,52 @@ export const Calendario = () => {
     }
   }
 
+  // Função para lidar com a seleção de categoria e abrir o dropdown de gênero
+  const handleCategoriaClick = (categoria) => {
+    setCategoriaSelecionada(categoria);
+    setGeneroSelecionado(null); // Reseta o gênero selecionado
+  };
+
+  // Função para filtrar pelo gênero (após escolher categoria)
+  const handleGeneroClick = (genero) => {
+    setGeneroSelecionado(genero);
+  };
+
+  // Aplicar o filtro local de gênero nos confrontos organizados
+  const confrontosFiltrados = aplicarFiltroGenero(confrontosOrganizados, generoSelecionado);
+
   return (
     <>
       <NavHeader />
       <Header />
       <div className='centralizador-botao'>
-        <button className="calendario-button" onClick={() => setFiltro('FEM')}>Feminino</button>
-        <button className="calendario-button" onClick={() => setFiltro('MASC')}>Masculino</button>
-        <button className="calendario-button" onClick={() => setFiltro('todos')}>Todos</button>
+        {/* Botões das Categorias */}
+        <button className="calendario-button" onClick={() => handleCategoriaClick('SUB 14')}>Sub 14</button>
+        <button className="calendario-button" onClick={() => handleCategoriaClick('SUB 17')}>Sub 17</button>
+        <button className="calendario-button" onClick={() => handleCategoriaClick('SUB 19')}>Sub 19</button>
       </div>
+
+      {/* Menu dropdown de Gêneros, só aparece quando uma categoria é selecionada */}
+      {categoriaSelecionada && (
+        <div className='centralizador-botao'>
+          <button className="calendario-button" onClick={() => handleGeneroClick('FEM')}>Feminino</button>
+          <button className="calendario-button" onClick={() => handleGeneroClick('MASC')}>Masculino</button>
+          <button className="calendario-button" onClick={() => handleGeneroClick('')}>Todos</button>
+        </div>
+      )}
+
       <div className='calendario-container_posts'>
         {isLoading ? (
           <div className='calendario-loading-message'>
             <p>Carregando jogos...</p>
           </div>
         ) : (
-          confrontosOrganizados.length === 0 ? (
+          confrontosFiltrados.length === 0 ? (
             <div className='calendario-no-games-message'>
               <p>Não temos nenhum jogo agendado para os próximos dias.</p>
             </div>
           ) : (
-            confrontosOrganizados.map((confronto, index) => {
+            confrontosFiltrados.map((confronto, index) => {
               return (
                 <div key={index} className='calendario-container_calendario'>
                   <div className='calendario-container_confronto'>
