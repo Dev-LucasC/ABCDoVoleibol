@@ -7,17 +7,21 @@ export const PainelNoticias = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        axios.get("https://shark-app-6myi8.ondigitalocean.app/api/noticias?populate=*")
+        axios.get("https://shark-app-6myi8.ondigitalocean.app/api/noticias?populate=*&pagination[limit]=-1")
             .then((response) => {
+               // console.log("API Data:", response.data); // Verifique o retorno completo da API
                 const { data } = response.data;
-                const sortedData = data.sort((a, b) => b.id - a.id); // Ordena os posts pelo ID em ordem decrescente
-                const filteredData = sortedData.slice(0, 12);
+                const sortedData = data.sort((a, b) => b.id - a.id);
+              //  console.log("Sorted Data:", sortedData); // Confirme se os IDs estão ordenados
+                const filteredData = sortedData.slice(0, 16);
+              //  console.log("Filtered Data:", filteredData); // Confirme o corte
                 setPosts(filteredData);
             })
             .catch((error) => {
-                console.log(error);
+                console.error(error);
             });
     }, []);
+    
 
     return (
         <div className="news-container">
