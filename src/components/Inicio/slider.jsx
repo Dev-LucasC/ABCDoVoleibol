@@ -14,7 +14,7 @@ export const Slider = ({ slides }) => {
 
   useEffect(() => {
     // Obter dados da API de notícias
-    axios.get("https://shark-app-6myi8.ondigitalocean.app/api/noticias?populate=*")
+    axios.get("https://shark-app-6myi8.ondigitalocean.app/api/noticias?populate=*&pagination[limit]=-1")
       .then((response) => {
         const { data } = response.data;
         // Ordenar as notícias pela data de criação e pegar as últimas 3
