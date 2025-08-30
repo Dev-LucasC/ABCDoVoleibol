@@ -8,7 +8,7 @@ const PrestacaoPdf = () => {
 
     // Efeito que é executado após a renderização inicial para buscar os dados da API
     useEffect(() => {
-        axios.get("https://shark-app-6myi8.ondigitalocean.app/api/prestacaos?populate=*")
+        axios.get("https://shark-app-6myi8.ondigitalocean.app/api/prestacaos?populate=*&pagination[limit]=-1")
             .then((response) => {
                 const { data } = response.data;
                 // Organiza os posts por data em ordem decrescente
