@@ -1,6 +1,6 @@
 import React from 'react';
 import './footer.css';
-import Completo from './patrocinadores/rodape.jpg';
+import Completo from './patrocinadores/rodape.png';
 
 const Footer = () => {
   return (
