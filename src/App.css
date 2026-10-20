@@ -68,3 +68,7 @@ body {
   transform: scale(1.1);
   padding: 1rem;
 }
+
+.media-placeholder { display: inline-flex; align-items: center; justify-content: center; min-height: 5rem; padding: 1rem; background: #f0f2f5; color: #333; }
+button:disabled { opacity: 0.5; cursor: default; }
+[role="alert"] { margin: 1rem 0; }

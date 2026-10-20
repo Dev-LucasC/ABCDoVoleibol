@@ -1,14 +1,9 @@
 import React from 'react';
-import Footer from '../../components/footer/Footer';
-import Header from '../../components/Header';
-import Teste from '../../components/NavHeader/NavHeader';
 import './associacao.css';
 
 const Associacao = () => {
   return (
     <>
-      <Teste />
-      <Header />
 
       <section>
         <h1 className='associacao_hr'>A Associação</h1>
@@ -50,7 +45,6 @@ const Associacao = () => {
           </div>
         </div>
       </section>
-      <Footer/>
     </>
   );
 };

@@ -1,52 +1,21 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import "./painelnoticias.css";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import useContent from '../../hooks/useContent';
+import ContentStatus from '../ContentStatus';
+import MediaImage from '../MediaImage';
+import './painelnoticias.css';
 
 export const PainelNoticias = () => {
-    const [posts, setPosts] = useState([]);
-
-    useEffect(() => {
-        axios.get("https://shark-app-6myi8.ondigitalocean.app/api/noticias?populate=*&pagination[limit]=-1")
-            .then((response) => {
-               // console.log("API Data:", response.data); // Verifique o retorno completo da API
-                const { data } = response.data;
-                const sortedData = data.sort((a, b) => b.id - a.id);
-              //  console.log("Sorted Data:", sortedData); // Confirme se os IDs estão ordenados
-                const filteredData = sortedData.slice(0, 16);
-              //  console.log("Filtered Data:", filteredData); // Confirme o corte
-                setPosts(filteredData);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    }, []);
-    
-
-    return (
-        <div className="news-container">
-            <div>
-                <h1>Noticias</h1>
-                <hr size="6" width="100%" align="left" color="black"></hr>
-            </div>
-            <div className="news-grid">
-                {posts.map((post, index) => (
-                    <div key={post.id} className="news-item">
-                        <div className="news-img-container">
-                            <img src={post?.attributes.imagem.data.attributes.url} alt={post?.attributes?.titulo} loading="lazy" />
-                        </div>
-                        <div className="news-text-container">
-                            <h3 className="news-text-title">{post?.attributes?.titulo}</h3>
-                            <p className="news-text-content">{post?.attributes?.texto}</p>
-                            <div className="news-link-container">
-                                <Link to={`/noticias/${post?.id}`} className="news-link">
-                                    Ver notícia completa
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
+  const result = useContent('/noticias?populate=*&sort=createdAt:desc&pagination[pageSize]=16');
+  const posts = Array.isArray(result.data) ? result.data : [];
+  return <div className="news-container">
+    <div><h1>Notícias</h1><hr /></div>
+    <ContentStatus {...result} empty={!posts.length}>Nenhuma notícia disponível.</ContentStatus>
+    <div className="news-grid">{posts.map(post => <div key={post.id} className="news-item">
+      <div className="news-img-container"><MediaImage media={post.attributes?.imagem} alt={post.attributes?.titulo || 'Notícia'} /></div>
+      <div className="news-text-container"><h3 className="news-text-title">{post.attributes?.titulo}</h3><p className="news-text-content">{post.attributes?.texto}</p>
+        <div className="news-link-container"><Link to={'/noticias/' + post.id} className="news-link">Ver notícia completa</Link></div>
+      </div>
+    </div>)}</div>
+  </div>;
 };

@@ -1,52 +1,18 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
- display: none;
-  
-@media screen and (max-width: 600px) {
-  display: flex;
-
-
-
-  > svg {
-    margin-top: 0.7rem;
-    position: absolute; 
-    color: white;
-    width: 100px;
-    height: 30px;
-    cursor: pointer;
-    background-color: #1D449F; 
+  display: none;
+  @media screen and (max-width: 900px) {
+    display: flex;
+    > svg {
+      margin-top: 0.7rem;
+      position: absolute;
+      color: white;
+      width: 100px;
+      height: 30px;
+      cursor: pointer;
+      background-color: #1D449F;
+    }
+    .teste { background-color: #1D449F; width: 100%; height: 3rem; }
   }
-
-  .teste {
-    background-color: #1D449F; 
-    width: 100vw;
-    height: 3rem;
-  }
-
-}
-
-@media screen and (max-width: 900px) {
-  display: flex;
-
-
-
-  > svg {
-    margin-top: 0.7rem;
-    position: absolute; 
-    color: white;
-    width: 100px;
-    height: 30px;
-    cursor: pointer;
-    background-color: #1D449F; 
-  }
-
-  .teste {
-    background-color: #1D449F; 
-    width: 100vw;
-    height: 3rem;
-  }
-
-}
-  
 `;

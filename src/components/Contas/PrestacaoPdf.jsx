@@ -1,46 +1,21 @@
-import './contas.css'
-import React, { useState, useEffect } from "react";
-import axios from 'axios'
+import React from 'react';
+import useContent from '../../hooks/useContent';
+import { mediaUrl } from '../../services/api';
+import ContentStatus from '../ContentStatus';
+import './contas.css';
 
-const PrestacaoPdf = () => {
-    // Estado para armazenar os dados da API
-    const [posts, setPosts] = useState([]);
-
-    // Efeito que é executado após a renderização inicial para buscar os dados da API
-    useEffect(() => {
-        axios.get("https://shark-app-6myi8.ondigitalocean.app/api/prestacaos?populate=*&pagination[limit]=-1")
-            .then((response) => {
-                const { data } = response.data;
-                // Organiza os posts por data em ordem decrescente
-                const sortedData = data.sort((a, b) => new Date(b.attributes.data) - new Date(a.attributes.data));
-                setPosts(sortedData); // Atualiza o estado com os dados da API
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }, []);
-
-    return (
-        <section>
-            <main className='contas'>
-                {/* Título da seção */}
-                <h1> Prestação de Contas </h1>
-                <hr size="6" width="100%" align="left" color="black"></hr>
-
-                {/* Mapeia os dados obtidos da API e renderiza cada item */}
-                {posts.map((post, index) => (
-                    <div className='provedor' key={index}>
-                        {/* Mostra o provedor e a data */}
-                        <h4>Provedor: {post?.attributes?.provedor} </h4>
-                        <h5> Data: {post?.attributes?.data}</h5>
-
-                        {/* Link para download do PDF */}
-                        <a href={post?.attributes.pdf.data[0]?.attributes.url} target="_blank" rel="noopener noreferrer" download>Download PDF</a>
-                    </div>
-                ))}
-            </main>
-        </section>
-    )
+export default function PrestacaoPdf() {
+  const result = useContent('/prestacaos?populate=*&sort=data:desc', true);
+  const posts = Array.isArray(result.data) ? result.data : [];
+  return <section><main className="contas">
+    <h1>Prestação de Contas</h1><hr />
+    <ContentStatus {...result} empty={!posts.length}>Nenhum documento disponível.</ContentStatus>
+    {posts.map(post => {
+      const pdf = mediaUrl(post.attributes?.pdf);
+      return <div className="provedor" key={post.id}>
+        <h4>Provedor: {post.attributes?.provedor}</h4><h5>Data: {post.attributes?.data || 'Não informada'}</h5>
+        {pdf ? <a href={pdf} target="_blank" rel="noopener noreferrer" download>Download PDF</a> : <p>Documento indisponível.</p>}
+      </div>;
+    })}
+  </main></section>;
 }
-
-export default PrestacaoPdf

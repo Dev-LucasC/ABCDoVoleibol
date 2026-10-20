@@ -11,9 +11,9 @@ const Header = () => {
   return (
     <Container>
 
-        <FaBars onClick={showSiderbar} />
+        <FaBars role="button" tabIndex={0} aria-label="Abrir menu" aria-expanded={sidebar} aria-controls="sidebar-menu" onClick={showSiderbar} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); showSiderbar(); } }} />
         {sidebar && <Sidebar active={setSidebar} />}
-       <main className='teste'> <br /> <br /> </main>
+       <div className='teste' />
     </Container>
   )
 }

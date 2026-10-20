@@ -10,7 +10,7 @@ const NavHeader = () => {
       <div className="container-header">
         {/* Logo */}
         <img src={Logo} alt="ABC do Voleibol" />
-        <Link to="#formulario" className='btn-associado' target='_blank'>Inscrição para seletiva</Link>
+        <Link to="/seletiva" className='btn-associado'>Inscrição para seletiva</Link>
         {/* Ícones de redes sociais */}
         <div className="header-sociais">
           <a href="https://www.facebook.com/abcdovoleibol?mibextid=ZbWKwL" target='_blank' rel="noopener noreferrer"><FaFacebookSquare /></a>
@@ -41,6 +41,7 @@ const NavHeader = () => {
           <li>
             <Link to="/jogoaovivo">Jogo ao Vivo</Link>
           </li>
+          <li><Link to="/associados">Seja associado</Link></li>
         </ul>
       </nav>
     </header>

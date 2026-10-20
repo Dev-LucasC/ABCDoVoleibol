@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 import './ContatoForm.css';
 
-const ContatoForm = () => {
+const ContatoForm = ({ seletiva = false }) => {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [telefone, setTelefone] = useState('');
   const [mensagem, setMensagem] = useState('');
   const [enviado, setEnviado] = useState(false);
+  const [enviando, setEnviando] = useState(false);
+  const [erro, setErro] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (enviando) return;
+    setEnviando(true);
+    setErro(false);
+    setEnviado(false);
     const formData = {
+      assunto: seletiva ? 'Inscrição para seletiva' : 'Contato pelo site',
       nome: nome,
       email: email,
       telefone: telefone,
@@ -34,7 +41,9 @@ const ContatoForm = () => {
         throw new Error('Erro ao enviar o formulário');
       }
     } catch (error) {
-      console.error(error);
+      setErro(true);
+    } finally {
+      setEnviando(false);
     }
   };
 
@@ -44,6 +53,7 @@ const ContatoForm = () => {
         <h1>Conheça nosso ginásio</h1>
         {/* Updated iframe with correct URL */}
         <iframe
+          title="Localização do ginásio ABC do Voleibol"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4227.152258654772!2d-48.60645551630523!3d-27.01128947667938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94d8b65804162f1f%3A0xc66182ad7a6ece7c!2sBarra%20Multieventos%20Hamilton%20Linhares%20Cruz%20(G3)!5e0!3m2!1spt-PT!2sbr!4v1691507243974!5m2!1spt-PT!2sbr"
           width="600"
           height="450"
@@ -55,10 +65,11 @@ const ContatoForm = () => {
         ></iframe>
       </div>
       <form className='contato-form' id="formulario" onSubmit={handleSubmit}>
-        {enviado && <p>Formulário enviado com sucesso!</p>}
-        <h1>Entre em contato conosco</h1>
+        {enviado && <p role="status">{seletiva ? 'Solicitação de inscrição enviada! Aguarde o contato da associação.' : 'Formulário enviado com sucesso!'}</p>}
+        {erro && <p role="alert">Não foi possível enviar. Seus dados foram mantidos; tente novamente.</p>}
+        <h1>{seletiva ? 'Inscrição para seletiva' : 'Entre em contato conosco'}</h1>
         <div className='form-group'>
-          <label htmlFor='nome'>Nome:</label>
+          <label htmlFor='nome'>{seletiva ? 'Nome do atleta:' : 'Nome:'}</label>
           <input
             type='text'
             id='nome'
@@ -88,7 +99,7 @@ const ContatoForm = () => {
           />
         </div>
         <div className='form-group'>
-          <label htmlFor='mensagem'>Mensagem:</label>
+          <label htmlFor='mensagem'>{seletiva ? 'Informe a idade, categoria e experiência do atleta:' : 'Mensagem:'}</label>
           <textarea
             id='mensagem'
             value={mensagem}
@@ -96,7 +107,7 @@ const ContatoForm = () => {
             required
           />
         </div>
-        <button type='submit'>Enviar</button>
+        <button type='submit' disabled={enviando}>{enviando ? 'Enviando...' : 'Enviar'}</button>
       </form>
     </div>
   );

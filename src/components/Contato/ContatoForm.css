@@ -29,7 +29,7 @@
   border: 1px solid black;
   padding: 1em;
   border-radius: 2em;
-  height: 600px;
+  min-height: 600px;
 }
 
 .form-group {

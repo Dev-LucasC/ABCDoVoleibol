@@ -8,17 +8,15 @@ const Footer = () => {
       <div className='parceiros'>
         <div>
           <div className='patrocinadores'>
-            <a href="#">
               <img 
                 src={Completo} 
-                alt="patrocinador" 
+                alt="Patrocinadores e apoiadores da ABC do Voleibol"
                 className='imagem-grande'
                 style={{ 
                   width: "100vw", 
                
                 }}
               />
-            </a>
           </div>
         </div>
       </div>

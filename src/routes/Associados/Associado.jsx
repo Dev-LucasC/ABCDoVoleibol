@@ -1,22 +1,15 @@
 import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import "./associado.css";
-import Footer from '../../components/footer/Footer';
-import Header from '../../components/Header'
-import Teste from '../../components/NavHeader/NavHeader';
 import parceiro1 from './imgs/2afisiobranca.jpg'
 import parceiro2 from "./imgs/klinebranca.jpg"
 import parceiro3 from "./imgs/amandaamorim.jpg"
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xaygbyln");
-  if (state.succeeded) {
-    alert('Obrigado por se juntar!');
-  }
+
   return (
     <>
-      <Teste />
-      <Header />
 
       <main className='form-associado'>
 
@@ -24,6 +17,8 @@ function ContactForm() {
         <p>A mensalidade para se tornar um associado é de R$30. Ao se tornar um associado, você estará apoiando nosso clube de voleibol e ajudando a promover o esporte.</p>
         <a href="#parceiros" className='button-vantagens'>Veja nossas Vantagens</a>
         <form onSubmit={handleSubmit}>
+          {state.succeeded && <p role="status">Obrigado por se juntar! Recebemos sua solicitação.</p>}
+          {state.errors && <ValidationError errors={state.errors} />}
           <label htmlFor="nome">
             Nome
           </label>
@@ -31,7 +26,8 @@ function ContactForm() {
             id="nome"
             type="text"
             name="nome"
-          />
+          required
+            />
           <ValidationError
             prefix="Nome"
             field="nome"
@@ -44,7 +40,8 @@ function ContactForm() {
             id="telefone"
             type="tel"
             name="telefone"
-          />
+          required
+            />
           <ValidationError
             prefix="Telefone"
             field="telefone"
@@ -57,7 +54,8 @@ function ContactForm() {
             id="email"
             type="email"
             name="email"
-          />
+          required
+            />
           <ValidationError
             prefix="Email"
             field="email"
@@ -70,7 +68,8 @@ function ContactForm() {
             id="cpf"
             type="text"
             name="cpf"
-          />
+          required
+            />
           <ValidationError
             prefix="CPF"
             field="cpf"
@@ -83,7 +82,8 @@ function ContactForm() {
             id="dataNascimento"
             type="date"
             name="dataNascimento"
-          />
+          required
+            />
           <ValidationError
             prefix="Data de Nascimento"
             field="dataNascimento"
@@ -147,7 +147,6 @@ function ContactForm() {
       
         </div>
       </main>
-      <Footer />
     </>
 
   );
