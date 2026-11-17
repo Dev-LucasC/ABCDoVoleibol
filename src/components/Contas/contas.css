@@ -1,38 +1,31 @@
-.contas {
-    margin: 2rem 0 7rem 0;
-    height: auto;
-}
-
-.provedor {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1em;
-    text-align: center;
-    align-items: center;
-    border: 1px solid black;
-    border-radius: 1em;
-    padding: 1em;
-}
-
-.provedor h5{
-    color: gray;
-}
-
-.provedor a {
-    color: inherit;
-    border: 0.5px solid black;
-    border-radius: 0.5em;
-    padding: 0.5em;
-}
-
-.provedor a:hover {
-    color: orange;
-    border: 0.5px solid orange;
-}
-
-@media screen and (max-width: 600px) {
-    .provedor {
-        font-size: 0.6rem;
-        white-space: nowrap;
-    }
+.contas { margin: 2rem 0 7rem; height: auto; color: #202938; line-height: 1.6; }
+.contas h1 { color: #1d489d; }
+.contas hr { margin: 0.75rem 0 1.5rem; border: 0; border-top: 2px solid #eda120; }
+.contas-intro { max-width: 48rem; margin-bottom: 1.25rem; }
+.contas-help { padding: 1rem; background: #f3f5f9; border-radius: 0.5rem; margin-bottom: 1.5rem; }
+.contas-help summary { cursor: pointer; font-weight: 600; display: list-item; }
+.contas-help p { margin-top: 0.75rem; max-width: 50rem; }
+.contas-filters { display: flex; flex-wrap: wrap; gap: 1rem; align-items: end; margin: 1.5rem 0 1rem; }
+.contas-filters label { display: flex; flex-direction: column; gap: 0.4rem; font-weight: 600; flex: 1 1 14rem; min-width: 0; }
+.contas input, .contas select, .contas button { font: inherit; min-height: 2.75rem; padding: 0.6rem 0.8rem; border: 1px solid #657084; border-radius: 0.4rem; background: white; color: #202938; max-width: 100%; }
+.contas button { cursor: pointer; }
+.contas :is(a, button, input, select, summary):focus-visible { outline: 3px solid #1d489d; outline-offset: 4px; }
+.contas-count { color: #4b5563; margin-bottom: 1.25rem; }
+.contas-group { margin-top: 1.75rem; }
+.contas-group h2 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+.contas-list { display: grid; gap: 1rem; }
+.contas .provedor { display: flex; justify-content: space-between; gap: 1rem; align-items: center; border: 1px solid #c8ced8; border-radius: 0.75rem; padding: 1.25rem; }
+.contas-document { min-width: 0; overflow-wrap: anywhere; }
+.contas-document h3 { font-size: 1.1rem; margin-bottom: 0.35rem; }
+.contas-document p, .contas-unavailable { color: #4b5563; }
+.contas-latest { display: inline-block; background: #fff1d6; color: #704300; font-size: 0.875rem; padding: 0.2rem 0.6rem; border-radius: 0.3rem; margin-bottom: 0.6rem; }
+.contas .provedor a { flex-shrink: 0; color: #1d489d; border: 1px solid #1d489d; border-radius: 0.4rem; padding: 0.65rem 0.9rem; text-decoration: underline; text-underline-offset: 3px; }
+.contas .provedor a:hover { background: #eef3fc; }
+.contas-empty { padding: 1.25rem; background: #f3f5f9; border-radius: 0.5rem; }
+@media (max-width: 600px) {
+  .contas .provedor { flex-direction: column; align-items: stretch; padding: 1rem; }
+  .contas .provedor a { text-align: center; }
+  .contas-filters { flex-direction: column; align-items: stretch; }
+  .contas-filters label { flex: auto; }
+  .contas h1 { font-size: 1.7rem; }
 }
