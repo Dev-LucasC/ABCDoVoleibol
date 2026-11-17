@@ -11,13 +11,6 @@ const objectives = [
   'Contribuir para a formação dos atletas com alimentação e hospedagem adequadas.',
 ];
 
-const guideObjectives = [
-  'Reunir calendários, resultados e notícias em um só lugar.',
-  'Facilitar a navegação pelo celular e promover a inclusão digital.',
-  'Melhorar a comunicação com atletas, famílias e torcedores.',
-  'Incentivar o acompanhamento de eventos e valorizar atletas e atividades locais.',
-];
-
 const values = [
   ['Ética e respeito', 'na convivência, nos treinos e nas competições.'],
   ['Dedicação e aprendizado', 'para evoluir com a prática e aprender com os resultados.'],
@@ -37,7 +30,6 @@ function Associacao() {
           <p>Associação esportiva sem fins lucrativos de Balneário Camboriú que promove a formação de crianças e adolescentes por meio do voleibol.</p>
           <nav aria-label="Nesta página">
             <a href="#nossa-historia">Nossa história</a>
-            <a href="#guia-digital">Guia Digital</a>
             <a href="#participacao">Como participar</a>
           </nav>
         </div>
@@ -84,13 +76,6 @@ function Associacao() {
         <ul>{objectives.map(objective => <li key={objective}>{objective}</li>)}</ul>
       </section>
 
-      <section id="guia-digital" className="association-guide" aria-labelledby="titulo-guia">
-        <p className="association-label">Projeto de extensão universitária</p>
-        <h2 id="titulo-guia">Guia Digital do Atleta ABC</h2>
-        <p>Informações sobre jogos, resultados e atividades esportivas podem ficar espalhadas por diferentes canais digitais. O projeto propõe aprimorar a plataforma do ABC do Voleibol para que a comunidade encontre essas informações de forma gratuita, organizada e acessível.</p>
-        <h3>Objetivos do projeto</h3>
-        <ul>{guideObjectives.map(objective => <li key={objective}>{objective}</li>)}</ul>
-      </section>
 
       <section id="participacao" aria-labelledby="titulo-participacao">
         <h2 id="titulo-participacao">Participe da comunidade</h2>
